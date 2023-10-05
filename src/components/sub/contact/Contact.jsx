@@ -30,6 +30,8 @@ export default function Contact() {
 		});
 		//마커 출력 인스턴스에 지도 인스턴스 결합
 		marker.setMap(instance.current);
+		const mapTypeControl = new kakao.maps.MapTypeControl();
+		instance.current.addControl(mapTypeControl, kakao.maps.ControlPosition.BOTTOMLEFT);
 	}, []);
 
 	useEffect(() => {
