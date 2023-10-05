@@ -1,4 +1,5 @@
 import Layout from '../../common/layout/Layout';
+import Modal from '../../common/modal/Modal';
 import './Youtube.scss';
 import { useEffect, useState } from 'react';
 
@@ -23,19 +24,22 @@ export default function Youtube() {
 		fetchYoutube();
 	}, []);
 	return (
-		<Layout title={'Youtube'}>
-			<p>test</p>
-			{Youtube.map((data, idx) => {
-				return (
-					<article key={idx}>
-						<h2>{data.snippet.title}</h2>
-						<p>{data.snippet.description}</p>
-						<div className='pic'>
-							<img src={data.snippet.thumbnails.standard.url} alt={data.title} />
-						</div>
-					</article>
-				);
-			})}
-		</Layout>
+		<>
+			<Layout title={'Youtube'}>
+				<p>test</p>
+				{Youtube.map((data, idx) => {
+					return (
+						<article key={idx}>
+							<h2>{data.snippet.title}</h2>
+							<p>{data.snippet.description}</p>
+							<div className='pic'>
+								<img src={data.snippet.thumbnails.standard.url} alt={data.title} />
+							</div>
+						</article>
+					);
+				})}
+			</Layout>
+			<Modal></Modal>
+		</>
 	);
 }
