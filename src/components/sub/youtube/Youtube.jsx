@@ -1,25 +1,29 @@
 import Layout from '../../common/layout/Layout';
 import Modal from '../../common/modal/Modal';
 import './Youtube.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 /*
- 리액트는 단방향 데이터 바인딩
- - 부모에서 자식으로 데이터 전달가능하지만 자식에서 부모로는 데이터를 전달 불가
- - props전달, children전달
- 
- 리액트에서 자식 컴포넌트에서는 직접적으로 부모 컴포넌트의 state값 변경이 불가
- - 해결방법 - 부모의 state 변경함수를 자식 컴포넌트로 전달
- - 자식컴포넌트에서는 전달 받은 state 변경함수로 간접적으로 부모의 state가 변경가능
+	리액트는 단방향 데이터 바인딩
+	- 부모에서 자식으로 데이터 전달가능하지만 자식에서 부모로는 데이터를 전달 불가
+	- props전달, children전달
+
+	리액트에서 자식 컴포넌트에서는 직접적으로 부모 컴포넌트의 state값 변경이 불가
+	- 해결방법 - 부모의 state 변경함수를 자식 컴포넌트로 전달
+	- 자식컴포넌트에서는 전달 받은 state 변경함수로 간접적으로 부모의 state가 변경가능
+
+	useRef로 JSX는 참조객체에 담을 수 있음
+	컴포넌트를 useRef를 통한 참조객체 담는것이 불가
 */
 
 export default function Youtube() {
+	const refEl = useRef(null);
 	const [Youtube, setYoutube] = useState([]);
 	const [IsModal, setIsModal] = useState(false);
 	const fetchYoutube = () => {
 		const api_key = process.env.REACT_APP_YOUTUBE_API;
 		const baseURL = 'https://www.googleapis.com/youtube/v3/playlistItems';
 		const pid = 'PLnBZ3Abl_z0NvoNbCbU2WV5-rkmzQsnwa';
-		const num = 5;
+		const num = 7;
 		const resultURL = `${baseURL}?key=${api_key}&part=snippet&playlistId=${pid}&maxResults=${num}`;
 		fetch(resultURL)
 			.then((data) => data.json())
@@ -38,20 +42,16 @@ export default function Youtube() {
 				{Youtube.map((data, idx) => {
 					return (
 						<article key={idx}>
-							<h2>{data.snippet.title}</h2>
+							<h2 onClick={() => console.log(refEl)}>{data.snippet.title}</h2>
 							<p>{data.snippet.description}</p>
-							<div className='pic' onClick={() => setIsModal(true)}>
+							<div className='pic' onClick={() => refEl.current.open()}>
 								<img src={data.snippet.thumbnails.standard.url} alt={data.title} />
 							</div>
 						</article>
 					);
 				})}
 			</Layout>
-			{IsModal && (
-				<Modal setIsModal={setIsModal}>
-					<h1>팝업</h1>
-				</Modal>
-			)}
+			<Modal setIsModal={setIsModal} ref={refEl}></Modal>
 		</>
 	);
 }
