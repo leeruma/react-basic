@@ -8,6 +8,7 @@ export default function Contact() {
 	const instance = useRef(null);
 	const [Traffic, setTraffic] = useState(false);
 	const [Index, setIndex] = useState(0);
+	const [IsMap, setIsMap] = useState(true);
 
 	// 현재 kakao객체를 cdn으로 가져오고 있기 때문에
 	// 리액트 컴포넌트 안쪽에서 window객체로부터 kakao객체를 비구조화할당을 이용해서 수동으로 꺼내옴
@@ -93,9 +94,12 @@ export default function Contact() {
 			</button>
 
 			<button onClick={setCenter}>지도 위치 초기화</button>
-			<div className='map' ref={map}></div>
+			<button onClick={() => setIsMap(!IsMap)}>{IsMap ? '로드뷰보기' : '지도보기'}</button>
 
-			<div className='view' ref={view}></div>
+			<div className='container'>
+				<div className={`view ${IsMap ? '' : 'on'}`} ref={view}></div>
+				<div className={`map ${IsMap ? 'on' : ''}`} ref={map}></div>
+			</div>
 
 			<ul>
 				{info.current.map((el, idx) => (
