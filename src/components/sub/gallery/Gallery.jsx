@@ -24,6 +24,10 @@ export default function Gallery() {
 				return (
 					<article key={idx}>
 						<h2>{data.title}</h2>
+						<img
+							src={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_m.jpg`}
+							alt={data.title}
+						/>
 					</article>
 				);
 			})}
