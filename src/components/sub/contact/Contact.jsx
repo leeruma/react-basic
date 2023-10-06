@@ -6,26 +6,49 @@ export default function Contact() {
 	const map = useRef(null);
 	const instance = useRef(null);
 	const [Traffic, setTraffic] = useState(false);
+	const [Index, setIndex] = useState(0);
 
 	// 현재 kakao객체를 cdn으로 가져오고 있기 때문에
 	// 리액트 컴포넌트 안쪽에서 window객체로부터 kakao객체를 비구조화할당을 이용해서 수동으로 꺼내옴
 	const { kakao } = window;
-	const info = {
-		latlng: new kakao.maps.LatLng(37.58478163978524, 126.88566424098676),
-		imgSrc: `${process.env.PUBLIC_URL}/img/marker1.png`,
-		imgSize: new kakao.maps.Size(232, 99),
-		imgPos: { offset: new kakao.maps.Point(116, 99) },
-	};
+
+	const info = useRef([
+		{
+			title: '삼성역 코엑스',
+			latlng: new kakao.maps.LatLng(37.51100661425726, 127.06162026853143),
+			imgSrc: `${process.env.PUBLIC_URL}/img/marker1.png`,
+			imgSize: new kakao.maps.Size(232, 99),
+			imgPos: { offset: new kakao.maps.Point(116, 99) },
+		},
+		{
+			title: '넥슨 본사',
+			latlng: new kakao.maps.LatLng(37.40211707077346, 127.10344953763003),
+			imgSrc: `${process.env.PUBLIC_URL}/img/marker2.png`,
+			imgSize: new kakao.maps.Size(232, 99),
+			imgPos: { offset: new kakao.maps.Point(116, 99) },
+		},
+		{
+			title: '서울 시청',
+			latlng: new kakao.maps.LatLng(37.5662952, 126.9779451),
+			imgSrc: `${process.env.PUBLIC_URL}/img/marker3.png`,
+			imgSize: new kakao.maps.Size(232, 99),
+			imgPos: { offset: new kakao.maps.Point(116, 99) },
+		},
+	]);
 
 	const marker = new kakao.maps.Marker({
-		position: info.latlng,
-		image: new kakao.maps.MarkerImage(info.imgSrc, info.imgSize, info.imgPos),
+		position: info.current[Index].latlng,
+		image: new kakao.maps.MarkerImage(
+			info.current[Index].imgSrc,
+			info.current[Index].imgSize,
+			info.current[Index].imgPos
+		),
 	});
 
 	useEffect(() => {
 		//컴포넌트 마운트 되자마자 지도인스턴스 생성
 		instance.current = new kakao.maps.Map(map.current, {
-			center: info.latlng,
+			center: info.current[Index].latlng,
 			level: 1,
 		});
 		//마커 출력 인스턴스에 지도 인스턴스 결합
