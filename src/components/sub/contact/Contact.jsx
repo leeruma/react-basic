@@ -46,6 +46,9 @@ export default function Contact() {
 	});
 
 	useEffect(() => {
+		// Index 값이 변경될때마다 새로운 지도 레이어가 중첩되므로
+		// 일단은 기존 map안의 모든 요소를 없애서 초기화
+		map.current.innerHTML = '';
 		//컴포넌트 마운트 되자마자 지도인스턴스 생성
 		instance.current = new kakao.maps.Map(map.current, {
 			center: info.current[Index].latlng,
@@ -55,7 +58,7 @@ export default function Contact() {
 		marker.setMap(instance.current);
 		const mapTypeControl = new kakao.maps.MapTypeControl();
 		instance.current.addControl(mapTypeControl, kakao.maps.ControlPosition.BOTTOMLEFT);
-	}, []);
+	}, [Index]); // Index 값이 변경될떄마다 지도화면이 다시 갱신되어야 하므로 Index값을 의존성 배열에 등록
 
 	useEffect(() => {
 		// traffic 값이 바뀔떄마다 실행될 구문
@@ -72,6 +75,14 @@ export default function Contact() {
 				{Traffic ? '교통정보끄기' : '교통정보켜기'}
 			</button>
 			<div className='map' ref={map}></div>
+
+			<ul>
+				{info.current.map((el, idx) => (
+					<li className={Index === idx ? 'on' : ''} key={idx} onClick={() => setIndex(idx)}>
+						{el.title}
+					</li>
+				))}
+			</ul>
 		</Layout>
 	);
 }
