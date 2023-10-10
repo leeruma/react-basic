@@ -6,7 +6,7 @@ import Masonry from 'react-masonry-component';
 export default function Gallery() {
 	const [Pics, setPics] = useState([]);
 	const my_id = '199296342@N06';
-
+	const method_search = 'flickr.photos.search';
 	const fetchData = async (opt) => {
 		let url = '';
 		const api_key = 'bbf48601ef45cb60f5bcfdb652b8bfa4';
@@ -22,6 +22,9 @@ export default function Gallery() {
 		if (opt.type === 'user') {
 			url = `https://www.flickr.com/services/rest/?method=${method_user}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json&user_id=${opt.id}`;
 		}
+		if (opt.type === 'search') {
+			url = `https://www.flickr.com/services/rest/?method=${method_search}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json&tags=${opt.tags}`;
+		}
 
 		// 만약 특정함수가 promise를 반환한다면 wrapiing 함수로 묶어준 뒤 async 지정
 		// 각각의 promise 반환 함수 앞쪽에 await를 붙이기만 하면 해당 코드는 동기화 됨
@@ -32,7 +35,8 @@ export default function Gallery() {
 	};
 
 	useEffect(() => {
-		fetchData({ type: 'user', id: my_id });
+		// fetchData({ type: 'user', id: my_id });
+		fetchData({ type: 'search', tags: 'ocean' });
 	}, []);
 	return (
 		<Layout title={'Gallery'}>
