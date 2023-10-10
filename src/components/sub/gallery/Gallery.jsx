@@ -5,12 +5,23 @@ import Masonry from 'react-masonry-component';
 
 export default function Gallery() {
 	const [Pics, setPics] = useState([]);
+	const my_id = '199296342@N06';
 
-	const fetchData = async () => {
+	const fetchData = async (opt) => {
+		let url = '';
 		const api_key = 'bbf48601ef45cb60f5bcfdb652b8bfa4';
 		const method_interest = 'flickr.interestingness.getList';
+		const method_user = 'flickr.people.getPhotos';
 		const num = 50;
-		const url = `https://www.flickr.com/services/rest/?method=${method_interest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
+
+		// fetching 함수 호출시 타입값이 있는 객체를 인수로 전달하면 해당 타입에 따라 호출 URL이 변경되고
+		// 해당 URL을 통해 받아지는 데이터로 달라짐
+		if (opt.type === 'interest') {
+			url = `https://www.flickr.com/services/rest/?method=${method_interest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
+		}
+		if (opt.type === 'user') {
+			url = `https://www.flickr.com/services/rest/?method=${method_user}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json&user_id=${opt.id}`;
+		}
 
 		// 만약 특정함수가 promise를 반환한다면 wrapiing 함수로 묶어준 뒤 async 지정
 		// 각각의 promise 반환 함수 앞쪽에 await를 붙이기만 하면 해당 코드는 동기화 됨
@@ -21,7 +32,7 @@ export default function Gallery() {
 	};
 
 	useEffect(() => {
-		fetchData();
+		fetchData({ type: 'user', id: my_id });
 	}, []);
 	return (
 		<Layout title={'Gallery'}>
