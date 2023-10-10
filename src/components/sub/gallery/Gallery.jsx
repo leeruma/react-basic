@@ -6,18 +6,21 @@ import Masonry from 'react-masonry-component';
 export default function Gallery() {
 	const refFrame = useRef(null);
 	const refInput = useRef(null);
+	const refBtnSet = useRef(null);
 	const [Pics, setPics] = useState([]);
 	const my_id = '199296342@N06';
 	const [Loader, setLoader] = useState(true);
 
 	const fetchData = async (opt) => {
+		setLoader(true);
+		refFrame.current.classList.remove('on');
 		let url = '';
 		const api_key = 'bbf48601ef45cb60f5bcfdb652b8bfa4';
 		const method_interest = 'flickr.interestingness.getList';
 		const method_user = 'flickr.people.getPhotos';
 		const method_search = 'flickr.photos.search';
 
-		const num = 500;
+		const num = 100;
 
 		if (opt.type === 'interest') {
 			url = `https://www.flickr.com/services/rest/?method=${method_interest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
@@ -47,6 +50,7 @@ export default function Gallery() {
 				if (count === imgs.length) {
 					console.log('모든 이미지 소스 랜더링 완료');
 					setLoader(false);
+					refFrame.current.classList.add('on');
 				}
 			};
 		});
@@ -75,9 +79,26 @@ export default function Gallery() {
 				</form>
 			</div>
 
-			<div className='btnSet'>
-				<button onClick={() => fetchData({ type: 'user', id: my_id })}>My Gallery</button>
-				<button onClick={() => fetchData({ type: 'interest' })}>Interest Gallery</button>
+			<div className='btnSet' ref={refBtnSet}>
+				<button
+					className='on'
+					onClick={(e) => {
+						// 각 버튼 클릭시 해당 버튼에 만약 on클래스가 있으면 이미 활성화 되어 있는 버튼이므로 return으로 종료해서 fetchData함수 호출 반지
+						if (e.target.classList.contains('on')) return;
+						fetchData({ type: 'user', id: my_id });
+					}}
+				>
+					My Gallery
+				</button>
+				<button
+					onClick={(e) => {
+						// 각 버튼 클릭시 해당 버튼에 만약 on클래스가 있으면 이미 활성화 되어 있는 버튼이므로 return으로 종료해서 fetchData함수 호출 반지
+						if (e.target.classList.contains('on')) return;
+						fetchData({ type: 'interest' });
+					}}
+				>
+					Interest Gallery
+				</button>
 			</div>
 
 			{Loader && (
