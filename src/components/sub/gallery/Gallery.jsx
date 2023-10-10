@@ -62,7 +62,9 @@ export default function Gallery() {
 `}
 											alt={data.owner}
 										/>
-										<span>{data.owner}</span>
+										<span onClick={() => fetchData({ type: 'user', id: data.owner })}>
+											{data.owner}
+										</span>
 									</div>
 								</div>
 							</article>
