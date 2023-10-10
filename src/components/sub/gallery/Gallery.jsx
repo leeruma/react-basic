@@ -7,16 +7,16 @@ export default function Gallery() {
 	const refInput = useRef(null);
 	const [Pics, setPics] = useState([]);
 	const my_id = '199296342@N06';
-	const method_search = 'flickr.photos.search';
+
 	const fetchData = async (opt) => {
 		let url = '';
 		const api_key = 'bbf48601ef45cb60f5bcfdb652b8bfa4';
 		const method_interest = 'flickr.interestingness.getList';
 		const method_user = 'flickr.people.getPhotos';
-		const num = 50;
+		const method_search = 'flickr.photos.search';
 
-		// fetching 함수 호출시 타입값이 있는 객체를 인수로 전달하면 해당 타입에 따라 호출 URL이 변경되고
-		// 해당 URL을 통해 받아지는 데이터로 달라짐
+		const num = 100;
+
 		if (opt.type === 'interest') {
 			url = `https://www.flickr.com/services/rest/?method=${method_interest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
 		}
@@ -27,17 +27,16 @@ export default function Gallery() {
 			url = `https://www.flickr.com/services/rest/?method=${method_search}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json&tags=${opt.tags}`;
 		}
 
-		// 만약 특정함수가 promise를 반환한다면 wrapiing 함수로 묶어준 뒤 async 지정
-		// 각각의 promise 반환 함수 앞쪽에 await를 붙이기만 하면 해당 코드는 동기화 됨
-		// 지저분하게 depth를 들여쓰기 해가면서 then구문을 호출할 필요가 없음
 		const data = await fetch(url);
 		const json = await data.json();
+		if (json.photos.photo.length === 0) {
+			return alert('해당 검색어의 결과값이 없습니다.');
+		}
 		setPics(json.photos.photo);
 	};
 
 	useEffect(() => {
 		fetchData({ type: 'user', id: my_id });
-		// fetchData({ type: 'search', tags: 'landscape' });
 	}, []);
 	return (
 		<Layout title={'Gallery'}>
@@ -75,9 +74,13 @@ export default function Gallery() {
 
 									<div className='profile'>
 										<img
-											src={`http://farm${data.farm}.staticflickr.com/${data.server}/buddyicons/${data.owner}.jpg
-`}
+											src={`http://farm${data.farm}.staticflickr.com/${data.server}/buddyicons/${data.owner}.jpg`}
 											alt={data.owner}
+											onError={(e) => {
+												// 만약 사용자가 프로필 이미지를 올리지 않았을때 엑박이 뜨므로
+												// onError이벤트를 연결해서 대체이미지 출력
+												e.target.setAttribute('src', 'https://www.flickr.com/images/buddyicon.gif');
+											}}
 										/>
 										<span onClick={() => fetchData({ type: 'user', id: data.owner })}>
 											{data.owner}
