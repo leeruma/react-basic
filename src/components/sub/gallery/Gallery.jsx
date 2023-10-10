@@ -36,6 +36,8 @@ export default function Gallery() {
 	}, []);
 	return (
 		<Layout title={'Gallery'}>
+			<button onClick={() => fetchData({ type: 'user', id: my_id })}>My Gellery</button>
+			<button onClick={() => fetchData({ type: 'interest' })}>Interest Gellery</button>
 			<div className='picFrame'>
 				<Masonry
 					elementType={'div'} // Masonry 컴포넌트가 변환될 태그명 지정
