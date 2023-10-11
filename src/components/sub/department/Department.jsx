@@ -27,15 +27,15 @@ export default function Department() {
 						<article key={idx}>
 							<div className='pic'>
 								<img src={`${path}/img/${member.pic}`} alt={member.name} />
-								<h3>{member.name}</h3>
 								{/* <p>{member.position}</p> */}
 							</div>
+							<h3>{member.name}</h3>
 						</article>
 					);
 				})}
 			</div>
 
-			<main>
+			<div className='box'>
 				<div>
 					<h2>Support!</h2>
 					<p>
@@ -60,7 +60,33 @@ export default function Department() {
 					</p>
 					<a href='#/Department'>More</a>
 				</div>
-			</main>
+			</div>
+
+			<div className='con'>
+				<div className='start'>
+					<h4>Start!</h4>
+					<p>
+						Our <span>Our experience</span> is your success
+					</p>
+					<a href='#/Department'>Who we are?</a>
+				</div>
+				<div className='hello'>
+					<h5>Hello!</h5>
+					<p>
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea quo perspiciatis
+						maiores consectetur ex eveniet asperiores sunt magnam explicabo totam fuga laboriosam
+						placeat, recusandae unde eius obcaecati a, at quia? Esse officiis similique quos iste
+						rem eligendi assumenda neque asperiores minima quisquam dicta temporibus, doloremque
+						quia facilis, provident cum!
+						<br />
+						<br />
+						Lorem ipsum <span>dolor sit amet consectetur</span>, adipisicing elit. Unde cumque
+						praesentium modi nihil facilis provident fuga illum ratione ex voluptas explicabo totam
+						temporibus, aperiam tenetur autem amet libero saepe minima.
+					</p>
+					<a href='#/Department'>Why us?</a>
+				</div>
+			</div>
 		</Layout>
 	);
 }
