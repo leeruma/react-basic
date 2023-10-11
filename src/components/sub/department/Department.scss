@@ -6,19 +6,25 @@
 	main {
 		display: flex;
 		justify-content: space-between;
+		padding-bottom: 30px;
+		margin-bottom: 5px;
 
-		h2 {
-			border-bottom: 1px solid rgb(196, 196, 196);
-			margin-bottom: 20px;
-			font: bold 30px 'Nanum Myeongjo';
-			padding-bottom: 7px;
-		}
-		p {
-			margin-bottom: 10px;
-		}
-		a {
-			color: aqua;
-			font: bold 16px 'Nanum Myeongjo';
+		div {
+			margin-right: 30px;
+
+			h2 {
+				margin-bottom: 10px;
+				border-bottom: 1px solid rgb(196, 196, 196);
+				font: bold 30px 'Nanum Myeongjo';
+				padding-bottom: 7px;
+			}
+			p {
+				margin-bottom: 15px;
+			}
+			a {
+				color: rgb(0, 200, 255);
+				font: bold 16px 'Nanum Myeongjo';
+			}
 		}
 	}
 	.memberBox {
