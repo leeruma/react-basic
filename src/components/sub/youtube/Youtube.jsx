@@ -32,11 +32,17 @@ export default function Youtube() {
 
 					return (
 						<article key={idx}>
-							<h2>{tit.length > 60 ? tit.substr(0, 60) + '...' : tit}</h2>
-							<p>{desc.length > 60 ? desc.substr(0, 180) + '...' : desc}</p>
-							<span>{date.split('T')[0].split('-').join('.')}</span>
+							<div className='titBox'>
+								<h2>{tit.length > 60 ? tit.substr(0, 60) + '...' : tit}</h2>
+							</div>
+
+							<div className='conBox'>
+								<p>{desc.length > 60 ? desc.substr(0, 180) + '...' : desc}</p>
+								<span>{date.split('T')[0].split('-').join('.')}</span>
+							</div>
+
 							<div
-								className='pic'
+								className='picBox'
 								onClick={() => {
 									setIndex(idx);
 									setIsModal(true);
