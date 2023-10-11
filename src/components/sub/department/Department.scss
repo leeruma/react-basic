@@ -1,47 +1,30 @@
-.Department {
+.Member {
 	figure {
-		background-color: lightblue;
+		background-color: #222;
 	}
 
-	.historyBox {
-		margin: 100px 0px;
-		article {
-			width: 100%;
-			display: flex;
-			flex-wrap: wrap;
-			padding: 50px 0px;
-			justify-content: space-between;
-			position: relative;
+	main {
+		display: flex;
+		justify-content: space-between;
 
-			.line {
-				position: absolute;
-				top: 0;
-				left: 35%;
-				width: 1px;
-				height: 1px;
-				background: #555;
-			}
-
-			h2 {
-				width: 30%;
-				text-align: right;
-			}
-			ul {
-				width: 65%;
-				padding-left: 50px;
-			}
+		h2 {
+			border-bottom: 1px solid #888;
+			margin-bottom: 20px;
 		}
 	}
-
 	.memberBox {
 		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
+		border: 1px solid #555;
+		padding: 3px;
+		background: #e8e6e6;
 
 		article {
-			width: 30%;
-			margin-bottom: 100px;
+			width: 25%;
+			height: 100%;
+			// margin-bottom: 100px;
 
 			.pic {
 				width: 100%;
@@ -51,10 +34,12 @@
 					width: 100%;
 					height: 100%;
 					object-fit: cover;
+					filter: grayscale(1);
 				}
 			}
 
-			h2 {
+			h3 {
+				transform: translate(5px, -37px);
 				margin-bottom: 10px;
 			}
 		}
