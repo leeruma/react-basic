@@ -8,8 +8,17 @@
 		justify-content: space-between;
 
 		h2 {
-			border-bottom: 1px solid #888;
+			border-bottom: 1px solid rgb(196, 196, 196);
 			margin-bottom: 20px;
+			font: bold 30px 'Nanum Myeongjo';
+			padding-bottom: 7px;
+		}
+		p {
+			margin-bottom: 10px;
+		}
+		a {
+			color: aqua;
+			font: bold 16px 'Nanum Myeongjo';
 		}
 	}
 	.memberBox {
