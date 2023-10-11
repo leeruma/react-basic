@@ -11,40 +11,16 @@ export default function Department() {
 
 	useEffect(() => {
 		fetch(`${path}/DB/department.json`)
-			.then((data) => data.json())
+			.then((data) => data.json()) // fetch문에 대한 응답 성공시 실행되는 구문
+			.catch((err) => console.log(err)) // fetch문에 대한 응답 실패시 실행되는 구문
 			.then((json) => {
-				setDepartment(json.members);
-			});
+				setDepartment(json.members); // json 데이터 변환에 대한 응답 성공시 실행되는 구문
+			})
+			.catch((err) => console.log(err)); // json 데이터 변환에 대한 응답 실패시 실행되는 구문
 	}, []);
 
 	return (
 		<Layout title={'Member'}>
-			<main>
-				<div>
-					<h2>Support!</h2>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, odio doloremque libero
-						voluptatum animi officiis! Placeat eius eveniet a dolore!
-					</p>
-					<a href='#'>More</a>
-				</div>
-				<div>
-					<h2>Develop!</h2>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, odio doloremque libero
-						voluptatum animi officiis! Placeat eius eveniet a dolore!
-					</p>
-					<a href='#'>More</a>
-				</div>
-				<div>
-					<h2>Research!</h2>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, odio doloremque libero
-						voluptatum animi officiis! Placeat eius eveniet a dolore!
-					</p>
-					<a href='#'>More</a>
-				</div>
-			</main>
 			<div className='memberBox'>
 				{Department.map((member, idx) => {
 					return (
@@ -58,6 +34,33 @@ export default function Department() {
 					);
 				})}
 			</div>
+
+			<main>
+				<div>
+					<h2>Support!</h2>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, odio doloremque libero
+						voluptatum animi officiis! Placeat eius eveniet a dolore!
+					</p>
+					<a href='#/Department'>More</a>
+				</div>
+				<div>
+					<h2>Develop!</h2>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, odio doloremque libero
+						voluptatum animi officiis! Placeat eius eveniet a dolore!
+					</p>
+					<a href='#/Department'>More</a>
+				</div>
+				<div>
+					<h2>Research!</h2>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, odio doloremque libero
+						voluptatum animi officiis! Placeat eius eveniet a dolore!
+					</p>
+					<a href='#/Department'>More</a>
+				</div>
+			</main>
 		</Layout>
 	);
 }
@@ -104,6 +107,11 @@ export default function Department() {
 	promise가 반환되야지 .then구문 호출가능
 	.then구문을 호출해야지만 동기적으로 다음코드 실행가능
 
+	promise : 데이터의 상태값을 추적할 수 있는 객체
+	promise의 3가지 상태
+	1. pending: 요청을 보내고 응답을 받기까지의 대기상태
+	2. fulfilled: pending이 끝나고 요청에 대한 응답을 성공적으로 받은 상태
+	3. rejected: pending이 끝나고 요청에 대한 응답을 받긴 하지만 에러를 반환 받은 상태
 
 	JSON (Javascript Object Notation) : 자바스크립트 객체 표현식
 	- 자바스크립트의 객체를 문자열 형태로 관리하는 데이터 형식 

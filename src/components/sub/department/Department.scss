@@ -3,30 +3,6 @@
 		background-color: #222;
 	}
 
-	main {
-		display: flex;
-		justify-content: space-between;
-		padding-bottom: 30px;
-		margin-bottom: 5px;
-
-		div {
-			margin-right: 30px;
-
-			h2 {
-				margin-bottom: 10px;
-				border-bottom: 1px solid rgb(196, 196, 196);
-				font: bold 30px 'Nanum Myeongjo';
-				padding-bottom: 7px;
-			}
-			p {
-				margin-bottom: 15px;
-			}
-			a {
-				color: rgb(0, 200, 255);
-				font: bold 16px 'Nanum Myeongjo';
-			}
-		}
-	}
 	.memberBox {
 		width: 100%;
 		display: flex;
@@ -35,6 +11,7 @@
 		border: 1px solid #555;
 		padding: 3px;
 		background: #e8e6e6;
+		margin-bottom: 50px;
 
 		article {
 			width: 25%;
@@ -61,6 +38,31 @@
 			h3 {
 				transform: translate(5px, -37px);
 				margin-bottom: 10px;
+			}
+		}
+	}
+	main {
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 30px;
+		margin-bottom: 5px;
+
+		div {
+			margin-right: 30px;
+
+			h2 {
+				margin-bottom: 10px;
+				border-bottom: 1px solid rgb(196, 196, 196);
+				font: bold 30px 'Nanum Myeongjo';
+				color: #555;
+				padding-bottom: 7px;
+			}
+			p {
+				margin-bottom: 15px;
+			}
+			a {
+				color: rgb(0, 200, 255);
+				font: bold 16px 'Nanum Myeongjo';
 			}
 		}
 	}
