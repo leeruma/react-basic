@@ -15,6 +15,7 @@
 
 			&:hover {
 				transform: scale(1.05);
+				background: #dad6d6;
 			}
 			&:nth-of-type(odd) {
 				flex-direction: row-reverse;
@@ -34,7 +35,7 @@
 				}
 				span {
 					position: absolute;
-					top: 91%;
+					top: 80%;
 				}
 			}
 			.picBox {

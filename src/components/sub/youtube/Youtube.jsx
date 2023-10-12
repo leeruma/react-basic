@@ -1,6 +1,7 @@
 import Layout from '../../common/layout/Layout';
 import './Youtube.scss';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 export default function Youtube() {
 	const [Youtube, setYoutube] = useState([]);
 
@@ -37,7 +38,10 @@ export default function Youtube() {
 							</div>
 
 							<div className='picBox'>
-								<img src={data.snippet.thumbnails.standard.url} alt={data.title} />
+								{/* 썸네일 링크 클릭시 특정유튜브 객체 하나의 정보값을 받기 위해서 유튜브 객체의 id값을 params로 전달 */}
+								<Link to={`/detail/${data.id}`}>
+									<img src={data.snippet.thumbnails.standard.url} alt={data.title} />
+								</Link>
 							</div>
 						</article>
 					);
