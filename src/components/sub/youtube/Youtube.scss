@@ -2,6 +2,7 @@
 	figure {
 	}
 	.content {
+		width: 50%;
 		h1 {
 		}
 
@@ -9,21 +10,37 @@
 			width: 100%;
 			display: flex;
 			justify-content: space-between;
-			margin-bottom: 80px;
+			margin-bottom: 40px;
+			transition: 0.3s;
 
-			&:nth-of-type(even) {
+			&:hover {
+				transform: scale(1.05);
+			}
+			&:nth-of-type(odd) {
 				flex-direction: row-reverse;
 			}
-
-			.titBox {
-				width: 30%;
-			}
 			.conBox {
-				width: 40%;
+				width: 48%;
+				position: relative;
+
+				h2 {
+					position: absolute;
+					top: 15%;
+					font: bold 1.3rem/1 'arial';
+				}
+				p {
+					position: absolute;
+					top: 40%;
+				}
+				span {
+					position: absolute;
+					top: 91%;
+				}
 			}
 			.picBox {
-				width: 30%;
-				height: 200px;
+				width: 48%;
+				height: 190px;
+				box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 
 				img {
 					width: 100%;
