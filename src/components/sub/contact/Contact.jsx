@@ -143,38 +143,50 @@ export default function Contact() {
 	};
 	return (
 		<Layout title={'Contact'}>
-			<div id='mailBox'>
-				<form ref={form} onSubmit={sendEmail}>
-					<div className='upper'>
-						<label>Name</label>
-						<input type='text' name='user_name' className='nameEl' />
-						<label>Email</label>
-						<input type='email' name='user_email' className='emailEl' />
-					</div>
+			<div className='upperBox'>
+				<div id='mailBox'>
+					<form ref={form} onSubmit={sendEmail}>
+						<div className='upper'>
+							<h2>Get in touch</h2>
+							<span>
+								<label>Name</label>
+								<input type='text' name='user_name' className='nameEl' />
+							</span>
+							<span>
+								<label>Email</label>
+								<input type='email' name='user_email' className='emailEl' />
+							</span>
+						</div>
 
-					<div className='lower'>
-						<label>Message</label>
-						<textarea name='message' className='msgEl' />
-					</div>
+						<div className='lower'>
+							<label>Message</label>
+							<textarea name='message' className='msgEl' />
+						</div>
 
-					<div className='btnSet'>
-						<input type='reset' value='Cancel' />
-						<input type='submit' value='Send' />
-					</div>
-				</form>
+						<div className='btnSet'>
+							<input type='reset' value='Reset' />
+							<input type='submit' value='Send' />
+						</div>
+					</form>
+				</div>
 			</div>
 
 			<div id='mapBox'>
-				<button onClick={() => setTraffic(!Traffic)}>
-					{Traffic ? '교통정보 끄기' : '교통정보 켜기'}
-				</button>
-				<button onClick={setCenter}>지도 위치 초기화</button>
-				<button onClick={() => setIsMap(!IsMap)}>{IsMap ? '로드뷰보기' : '지도보기'}</button>
 				<div className='container'>
 					<div className={`view ${IsMap ? '' : 'on'}`} ref={view}></div>
 					<div className={`map ${IsMap ? 'on' : ''}`} ref={map}></div>
 				</div>
+			</div>
 
+			<div className='temp'>
+				<div className='btnSet'>
+					<button onClick={() => setTraffic(!Traffic)}>
+						{Traffic ? '교통정보 끄기' : '교통정보 켜기'}
+					</button>
+
+					<button onClick={setCenter}>지도 위치 초기화</button>
+					<button onClick={() => setIsMap(!IsMap)}>{IsMap ? '로드뷰보기' : '지도보기'}</button>
+				</div>
 				{/* 데이터기반으로 자동 버튼 생성 및 자동 이벤트 연결 처리 */}
 				<ul>
 					{info.current.map((el, idx) => (
@@ -190,6 +202,20 @@ export default function Contact() {
 						</li>
 					))}
 				</ul>
+			</div>
+
+			<div className='line'></div>
+			<div className='text'>
+				<h3>
+					Lorem, ipsum dolor.
+					<br />
+					Lorem ipsum dolor sit.
+				</h3>
+				<p>
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+					<br /> Ducimus vitae architecto a iusto nisi?
+					<br /> Vitae maxime at fugiat eum harum?
+				</p>
 			</div>
 		</Layout>
 	);

@@ -1,114 +1,210 @@
 .Contact {
 	figure {
-		background: orange;
+		background: gray;
 	}
 
-	#mailBox {
-		width: 50%;
-		margin-bottom: 100px;
+	.content {
+		width: 100%;
+		h1 {
+			text-align: center;
+		}
+		.upperBox {
+			background: #333;
+			width: 25%;
+			height: 85vh;
+			position: relative;
+			top: 50px;
+			left: 30%;
+			transform: translate(-30%, 0);
+			box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 
-		.upper {
-			width: 100%;
-			display: flex;
-			margin-bottom: 50px;
-			label {
-				font: bold 1rem/1 'arial';
-				color: #555;
-				margin-right: 20px;
-				position: relative;
-				top: 10px;
-			}
-			input[type='text'],
-			input[type='email'] {
-				border: none;
-				padding: 10px 20px;
-				border-bottom: 1px solid #555;
-				margin-right: 50px;
-				outline: none;
-				transition: 0.5s;
-				&:focus {
-					background: rgb(222, 245, 252);
+			#mailBox {
+				background: rgb(52, 52, 52);
+				width: 90%;
+				height: 93%;
+				margin: 0px auto;
+				margin-bottom: 100px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+
+				.upper {
+					width: 100%;
+					display: flex;
+					flex-wrap: wrap;
+					transform: translate(10%, 20%);
+					font: 1rem/1 'Nanum Myeongjo';
+					h2 {
+						color: #eee;
+						margin-bottom: 20px;
+					}
+
+					label {
+						font: 1rem/1 'Nanum Myeongjo';
+						color: #eee;
+						margin-right: 20px;
+						position: relative;
+						top: 10px;
+					}
+					input[type='text'],
+					input[type='email'] {
+						background: rgb(52, 52, 52);
+						border: none;
+						padding: 0px 20px;
+						border-bottom: 1px solid black;
+						outline: none;
+						margin-bottom: 40px;
+						transform: translateY(50%);
+					}
+				}
+
+				.lower {
+					width: 100%;
+					margin-bottom: 10px;
+					transform: translate(10%, 20%);
+
+					label {
+						display: block;
+						margin-bottom: 50px;
+						font: 1rem/1 'Nanum Myeongjo';
+						color: #eee;
+					}
+					textarea {
+						background: rgb(52, 52, 52);
+						width: 80%;
+						height: 20vh;
+						border: none;
+						border-bottom: 1px solid black;
+						margin-right: 50px;
+						resize: none;
+						outline: none;
+						margin-bottom: 80px;
+						transform: translateY(-20%);
+					}
+				}
+
+				.btnSet {
+					display: flex;
+					justify-content: space-between;
+					gap: 50px;
+					display: flex;
+					justify-content: space-evenly;
+					input {
+						width: 80%;
+						height: 40px;
+						background: #efefef;
+						font: 1rem/1 'Nanum Myeongjo';
+						text-align: center;
+					}
 				}
 			}
 		}
 
-		.lower {
-			width: 100%;
-			margin-bottom: 10px;
-			label {
-				display: block;
-				margin-bottom: 5px;
-				font: bold 1rem/1 'arial';
-				color: #555;
-			}
-			textarea {
+		#mapBox {
+			width: 40%;
+			position: absolute;
+			top: 44%;
+			right: 179px;
+			box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+
+			.container {
 				width: 100%;
-				padding: 10px;
-				border: none;
-				border-bottom: 1px solid #555;
-				margin-right: 50px;
-				resize: none;
-				outline: none;
-				transition: 0.4s;
-				&:focus {
-					background: lightcyan;
+				height: 60vh;
+				background: #111;
+				position: relative;
+
+				.map,
+				.view {
+					width: 100%;
+					height: 100%;
+					background: #111;
+					position: absolute;
+					top: 0;
+					left: 0;
+					opacity: 0;
+					z-index: 1;
+
+					&.on {
+						opacity: 1;
+						z-index: 2;
+					}
 				}
 			}
 		}
 
-		.btnSet {
-			width: 100%;
-			padding-right: 20px;
+		ul {
 			display: flex;
-			justify-content: space-between;
-			gap: 50px;
-
-			input {
-				display: block;
-				height: 40px;
-				background: transparent;
-				border: 1px solid #666;
-				font: 1rem/1 'arial';
-				color: #555;
+			flex-wrap: wrap;
+			gap: 10px;
+			font: 0.6rem/1 'Nanum Myeongjo';
+			justify-content: center;
+			li {
+				width: 90%;
+				cursor: pointer;
+				border: 1px solid black;
+				border-radius: 5%;
+				padding: 12px;
 				text-align: center;
 			}
-		}
-	}
 
-	.container {
-		width: 100%;
-		height: 60vh;
-		background: #111;
-		position: relative;
-	}
-
-	.map,
-	.view {
-		width: 100%;
-		height: 100%;
-		background: #111;
-		position: absolute;
-		top: 0;
-		left: 0;
-		opacity: 0;
-		z-index: 1;
-
-		&.on {
-			opacity: 1;
-			z-index: 2;
-		}
-	}
-
-	ul {
-		display: flex;
-		gap: 40px;
-
-		li {
-			cursor: pointer;
+			li.on {
+				background: #333;
+				color: #efefef;
+			}
 		}
 
-		li.on {
-			color: hotpink;
+		.temp {
+			width: 100px;
+			height: 60vh;
+			background: #efefef;
+
+			position: absolute;
+			top: 44%;
+			left: 221px;
+			box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+
+			.btnSet {
+				display: flex;
+				flex-wrap: wrap;
+				margin-bottom: 80px;
+				justify-content: center;
+				position: relative;
+				top: 13%;
+
+				button {
+					width: 90%;
+					height: 40px;
+					font: 0.7rem/1 'Nanum Myeongjo';
+					text-align: center;
+					margin-bottom: 10px;
+				}
+			}
+		}
+		.line {
+			width: 72%;
+			display: flex;
+			position: relative;
+			top: 50%;
+			left: 55%;
+			transform: translate(-55%, -50%);
+			border-bottom: 1px solid black;
+			margin-top: 100px;
+			margin-bottom: 30px;
+		}
+
+		.text {
+			width: 72%;
+			position: relative;
+			top: 80%;
+			left: 55%;
+			transform: translate(-55%, 0);
+			display: flex;
+			justify-content: space-between;
+
+			h3 {
+				font: 3rem/1 'Nanum Myeongjo';
+			}
 		}
 	}
 }

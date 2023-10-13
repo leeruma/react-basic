@@ -3,8 +3,6 @@
 	}
 	.content {
 		width: 50%;
-		h1 {
-		}
 
 		article {
 			width: 100%;
@@ -12,30 +10,35 @@
 			justify-content: space-between;
 			margin-bottom: 40px;
 			transition: 0.3s;
+			position: relative;
 
 			&:hover {
 				transform: scale(1.05);
-				background: #dad6d6;
+				// background: #dad6d6;
 			}
 			&:nth-of-type(odd) {
 				flex-direction: row-reverse;
+				.conBox {
+					width: 48%;
+					display: inline;
+					text-align: left;
+					transform: translateY(18%);
+					h2,
+					p,
+					span {
+						margin-bottom: 10px;
+					}
+				}
 			}
 			.conBox {
 				width: 48%;
-				position: relative;
-
-				h2 {
-					position: absolute;
-					top: 15%;
-					font: bold 1.3rem/1 'arial';
-				}
-				p {
-					position: absolute;
-					top: 40%;
-				}
+				display: inline;
+				text-align: right;
+				transform: translateY(18%);
+				h2,
+				p,
 				span {
-					position: absolute;
-					top: 80%;
+					margin-bottom: 10px;
 				}
 			}
 			.picBox {
