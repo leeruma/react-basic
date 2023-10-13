@@ -164,7 +164,6 @@ export default function Contact() {
 						</div>
 
 						<div className='btnSet'>
-							<input type='reset' value='Reset' />
 							<input type='submit' value='Send' />
 						</div>
 					</form>
@@ -181,11 +180,11 @@ export default function Contact() {
 			<div className='temp'>
 				<div className='btnSet'>
 					<button onClick={() => setTraffic(!Traffic)}>
-						{Traffic ? '교통정보 끄기' : '교통정보 켜기'}
+						{Traffic ? 'Traffic off' : 'Traffic on'}
 					</button>
 
-					<button onClick={setCenter}>지도 위치 초기화</button>
-					<button onClick={() => setIsMap(!IsMap)}>{IsMap ? '로드뷰보기' : '지도보기'}</button>
+					<button onClick={setCenter}>Map reset</button>
+					<button onClick={() => setIsMap(!IsMap)}>{IsMap ? 'RoadView on' : 'Map on'}</button>
 				</div>
 				{/* 데이터기반으로 자동 버튼 생성 및 자동 이벤트 연결 처리 */}
 				<ul>
@@ -206,16 +205,39 @@ export default function Contact() {
 
 			<div className='line'></div>
 			<div className='text'>
-				<h3>
-					Lorem, ipsum dolor.
-					<br />
-					Lorem ipsum dolor sit.
-				</h3>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-					<br /> Ducimus vitae architecto a iusto nisi?
-					<br /> Vitae maxime at fugiat eum harum?
-				</p>
+				<div>
+					<h3>Contact</h3>
+					<p>
+						<span>Lorem, ipsum.</span>
+						<span>Lorem, ipsum dolor.</span>
+						<span>Lorem, ipsum.</span>
+					</p>
+					<a href='#/Contact.jsx'>visit us</a>
+				</div>
+				<div>
+					<h3>Contact</h3>
+					<p>
+						<span>Lorem ipsum dolor sit.</span>
+						<span>Lorem, ipsum dolor.</span>
+						<span>Lorem, ipsum.</span>
+					</p>
+					<a href='#/Contact.jsx'>shop</a>
+					<a href='#/Contact.jsx'>today's event</a>
+				</div>
+				<div className='icon'>
+					<h3>Contact</h3>
+					<i class='fa-brands fa-square-instagram'></i>
+					<i class='fa-brands fa-facebook'></i>
+					<i class='fa-brands fa-youtube'></i>
+					<i class='fa-brands fa-square-twitter'></i>
+				</div>
+				<div className='bt'>
+					<h3>Contact</h3>
+					<span>
+						<input type='text' name='user_name' />
+						<button>Search</button>
+					</span>
+				</div>
 			</div>
 		</Layout>
 	);

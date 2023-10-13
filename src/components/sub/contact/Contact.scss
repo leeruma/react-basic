@@ -51,11 +51,12 @@
 					input[type='email'] {
 						background: rgb(52, 52, 52);
 						border: none;
-						padding: 0px 20px;
+						padding: 0px 2px;
 						border-bottom: 1px solid black;
 						outline: none;
 						margin-bottom: 40px;
 						transform: translateY(50%);
+						color: #fff;
 					}
 				}
 
@@ -81,6 +82,7 @@
 						outline: none;
 						margin-bottom: 80px;
 						transform: translateY(-20%);
+						color: #fff;
 					}
 				}
 
@@ -93,9 +95,10 @@
 					input {
 						width: 80%;
 						height: 40px;
-						background: #efefef;
+						background: #dfdede;
 						font: 1rem/1 'Nanum Myeongjo';
 						text-align: center;
+						border: none;
 					}
 				}
 			}
@@ -104,7 +107,7 @@
 		#mapBox {
 			width: 40%;
 			position: absolute;
-			top: 44%;
+			top: 41%;
 			right: 179px;
 			box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 
@@ -140,11 +143,11 @@
 			font: 0.6rem/1 'Nanum Myeongjo';
 			justify-content: center;
 			li {
-				width: 90%;
+				width: 85%;
 				cursor: pointer;
 				border: 1px solid black;
 				border-radius: 5%;
-				padding: 12px;
+				padding: 15px 10px;
 				text-align: center;
 			}
 
@@ -160,7 +163,7 @@
 			background: #efefef;
 
 			position: absolute;
-			top: 44%;
+			top: 41%;
 			left: 221px;
 			box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 
@@ -173,7 +176,7 @@
 				top: 13%;
 
 				button {
-					width: 90%;
+					width: 85%;
 					height: 40px;
 					font: 0.7rem/1 'Nanum Myeongjo';
 					text-align: center;
@@ -202,8 +205,57 @@
 			display: flex;
 			justify-content: space-between;
 
+			div {
+				width: 18%;
+			}
+
+			.icon {
+				i {
+					margin-top: 5px;
+					margin-right: 10px;
+					font-size: 18px;
+				}
+			}
+
 			h3 {
-				font: 3rem/1 'Nanum Myeongjo';
+				font: bold 1.3rem/1 'Nanum Myeongjo';
+				margin-bottom: 5px;
+			}
+			p {
+				margin-top: 10px;
+				margin-bottom: 12px;
+
+				span {
+					display: block;
+				}
+			}
+			a {
+				display: block;
+				margin-bottom: 15px;
+				font: bold 1rem/1 'arial';
+			}
+
+			.bt {
+				input[type='text'] {
+					width: 100%;
+					height: 30px;
+					display: flex;
+					flex-wrap: wrap;
+					border: none;
+					margin-bottom: 10px;
+					outline: none;
+					padding: 0 5px;
+				}
+				button {
+					width: 100%;
+					height: 40px;
+					font: 0.7rem/1 'Nanum Myeongjo';
+					text-align: center;
+					margin-bottom: 10px;
+					border: none;
+					background: #333;
+					color: #efefef;
+				}
 			}
 		}
 	}
