@@ -1,5 +1,24 @@
 .news {
 	width: 100%;
 	height: calc(100vh - 90px);
-	background: green;
+	background: lightgreen;
+	padding: 10vw;
+
+	h2 {
+		font: bold 40px/1 'arial';
+		margin-bottom: 50px;
+	}
+
+	.postWrap {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+
+		article {
+			width: 20%;
+			height: 300px;
+			padding: 20px;
+			background: #fff;
+		}
+	}
 }
