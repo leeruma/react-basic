@@ -1,48 +1,68 @@
 .Community {
 	.content {
+		h1 {
+			transform: translate(2%, 90%);
+		}
+
 		.inputBox {
-			width: 100%;
-			border: 1px solid #aaa;
+			position: relative;
+			width: 96%;
+			// border: 1px solid #aaa;
 			padding: 50px;
+			margin-top: -80px;
 			margin-bottom: 50px;
+			box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
 
 			input[type='text'],
 			textarea {
+				transform: translateX(100%);
 				width: 50%;
 				padding: 8px 10px;
-				border: 1px solid #aaa;
+				border: none;
+				border-bottom: 1px solid #aaa;
 				resize: none;
 				margin-bottom: 10px;
-				background: #f0fdff;
+				background: transparent;
+				outline: none;
 			}
 
 			.btnSet {
+				position: absolute;
+				right: 3%;
 				button {
-					width: 150px;
 					height: 30px;
 					display: inline-block;
 					border: none;
-					background: #555;
+					background: #eee;
 					margin-right: 20px;
-					color: #fff;
+					color: #666;
 					cursor: pointer;
+
+					&:hover {
+						color: black;
+					}
 				}
 			}
 		}
 
 		.showBox {
 			width: 100%;
-			border: 1px solid #aaa;
-			padding: 50px;
+			// border: 1px solid #aaa;
+			// padding: 50px;
 
 			article {
-				background: #fff;
+				width: 46%;
+				background: #eee;
 				padding: 30px;
+				margin-right: 40px;
 				margin-bottom: 40px;
 				display: flex;
 				justify-content: space-between;
 				align-content: center;
 				flex-wrap: wrap;
+				border-radius: 5px;
+				float: left;
+				box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
 
 				.txt {
 					width: 88%;

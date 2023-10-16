@@ -143,64 +143,65 @@ export default function Contact() {
 	};
 	return (
 		<Layout title={'Contact'}>
-			<div className='upperBox'>
-				<div id='mailBox'>
-					<form ref={form} onSubmit={sendEmail}>
-						<div className='upper'>
-							<h2>Get in touch</h2>
-							<span>
-								<label>Name</label>
-								<input type='text' name='user_name' className='nameEl' />
-							</span>
-							<span>
-								<label>Email</label>
-								<input type='email' name='user_email' className='emailEl' />
-							</span>
-						</div>
+			<div className='cls'>
+				<div className='temp'>
+					<div className='btnSet'>
+						<button onClick={() => setTraffic(!Traffic)}>
+							{Traffic ? 'Traffic off' : 'Traffic on'}
+						</button>
 
-						<div className='lower'>
-							<label>Message</label>
-							<textarea name='message' className='msgEl' />
-						</div>
-
-						<div className='btnSet'>
-							<input type='submit' value='Send' />
-						</div>
-					</form>
+						<button onClick={setCenter}>Map reset</button>
+						<button onClick={() => setIsMap(!IsMap)}>{IsMap ? 'RoadView on' : 'Map on'}</button>
+					</div>
+					{/* 데이터기반으로 자동 버튼 생성 및 자동 이벤트 연결 처리 */}
+					<ul>
+						{info.current.map((el, idx) => (
+							<li
+								className={Index === idx ? 'on' : ''}
+								key={idx}
+								onClick={() => {
+									setIndex(idx);
+									setIsMap(true);
+								}}
+							>
+								{el.title}
+							</li>
+						))}
+					</ul>
 				</div>
-			</div>
+				<div className='upperBox'>
+					<div id='mailBox'>
+						<form ref={form} onSubmit={sendEmail}>
+							<div className='upper'>
+								<h2>Get in touch</h2>
+								<span>
+									<label>Name</label>
+									<input type='text' name='user_name' className='nameEl' />
+								</span>
+								<span>
+									<label>Email</label>
+									<input type='email' name='user_email' className='emailEl' />
+								</span>
+							</div>
 
-			<div id='mapBox'>
-				<div className='container'>
-					<div className={`view ${IsMap ? '' : 'on'}`} ref={view}></div>
-					<div className={`map ${IsMap ? 'on' : ''}`} ref={map}></div>
+							<div className='lower'>
+								<label>Message</label>
+								<textarea name='message' className='msgEl' />
+							</div>
+
+							<div className='btnSet'>
+								<input type='submit' value='Send' />
+							</div>
+						</form>
+					</div>
 				</div>
-			</div>
 
-			<div className='temp'>
-				<div className='btnSet'>
-					<button onClick={() => setTraffic(!Traffic)}>
-						{Traffic ? 'Traffic off' : 'Traffic on'}
-					</button>
-
-					<button onClick={setCenter}>Map reset</button>
-					<button onClick={() => setIsMap(!IsMap)}>{IsMap ? 'RoadView on' : 'Map on'}</button>
+				<div id='mapBox'>
+					<div className='container'>
+						<div className={`view ${IsMap ? '' : 'on'}`} ref={view}></div>
+						<div className={`map ${IsMap ? 'on' : ''}`} ref={map}></div>
+					</div>
 				</div>
-				{/* 데이터기반으로 자동 버튼 생성 및 자동 이벤트 연결 처리 */}
-				<ul>
-					{info.current.map((el, idx) => (
-						<li
-							className={Index === idx ? 'on' : ''}
-							key={idx}
-							onClick={() => {
-								setIndex(idx);
-								setIsMap(true);
-							}}
-						>
-							{el.title}
-						</li>
-					))}
-				</ul>
 			</div>
 
 			<div className='line'></div>
