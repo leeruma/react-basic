@@ -20,7 +20,7 @@ export default function Gallery() {
 		const method_interest = 'flickr.interestingness.getList';
 		const method_user = 'flickr.people.getPhotos';
 		const method_search = 'flickr.photos.search';
-		const num = 8;
+		const num = 10;
 
 		if (opt.type === 'interest') {
 			url = `https://www.flickr.com/services/rest/?method=${method_interest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
@@ -97,11 +97,10 @@ export default function Gallery() {
 			<Layout title={'Gallery'}>
 				<div className='searchBox'>
 					<form onSubmit={handleSubmit}>
-						<input ref={refInput} type='text' placeholder='검색어를 입력하세요' />
-						<button>검색</button>
+						<input ref={refInput} type='text' />
+						<button>search</button>
 					</form>
 				</div>
-
 				<div className='btnSet' ref={refBtnSet}>
 					<button className='on' onClick={handleClickMy}>
 						My Gallery
@@ -109,7 +108,7 @@ export default function Gallery() {
 
 					<button onClick={handleClickInterest}>Interest Gallery</button>
 				</div>
-
+				<div className='line'></div>
 				<div className='picFrame'>
 					<Masonry
 						elementType={'div'}
@@ -118,6 +117,7 @@ export default function Gallery() {
 						updateOnEachImageLoad={false}
 					>
 						{Pics.map((data, idx) => {
+							let tit = data.title;
 							return (
 								<article key={idx}>
 									<div className='inner'>
@@ -130,7 +130,8 @@ export default function Gallery() {
 												setIsModal(true);
 											}}
 										/>
-										<h2>{data.title}</h2>
+										{/* <h2>{data.title}</h2> */}
+										<h2>{tit.length > 18 ? tit.substr(0, 18) + '...' : tit}</h2>
 
 										<div className='profile'>
 											<img

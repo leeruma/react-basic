@@ -7,6 +7,8 @@ export default function Detail() {
 	// url로 전달된 parameter값을 비구조화할당으로 받을 수 있음
 	const { id } = useParams();
 	const [Data, setData] = useState(null);
+	const [Music, setMusic] = useState([]);
+	let data = Music.data;
 
 	useEffect(() => {
 		const api_key = process.env.REACT_APP_YOUTUBE_API;
@@ -20,15 +22,20 @@ export default function Detail() {
 				setData(json.items[0].snippet);
 			});
 	}, []);
+
 	return (
-		<Layout title={'Detail'}>
-			<h2>{Data?.title}</h2>
-			<p>{Data?.description}</p>
-			<div className='vidBox'>
-				<iframe
-					src={`https://www.youtube.com/embed/${Data?.resourceId.videoId}`}
-					title='youtube'
-				></iframe>
+		<Layout title={'Music'}>
+			<div className='upper'>
+				<div className='vidBox'>
+					<iframe
+						src={`https://www.youtube.com/embed/${Data?.resourceId.videoId}`}
+						title='youtube'
+					></iframe>
+				</div>
+				<div className='conBox'>
+					<h2>{Data?.title}</h2>
+					<p>{Data?.description}</p>
+				</div>
 			</div>
 		</Layout>
 	);
