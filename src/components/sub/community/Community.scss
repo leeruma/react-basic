@@ -9,19 +9,24 @@
 			width: 96%;
 			// border: 1px solid #aaa;
 			background: #eee;
-			padding: 5px;
+			padding: 30px;
 			margin-bottom: 50px;
 			box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
 
 			h4 {
 				font: 4rem/1 'Nanum Myeongjo';
 				color: #555;
-				transform: translate(3%, -120px);
+				// transform: translate(3%, -120px);
+				display: inline;
+				position: absolute;
+				left: 30px;
+				top: 20px;
 			}
 
 			input[type='text'],
 			textarea {
-				transform: translate(110%, 30px);
+				transform: translate(110%, 0px);
+
 				width: 45%;
 				padding: 8px 10px;
 				border: none;

@@ -19,6 +19,7 @@ function App() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
+		// 컴포넌트 마운트시 fetchYoutube가 반환한 action 객체를 dispatch함수를 통해서 리듀서에 전달
 		dispatch(fetchYoutube());
 	}, []);
 
