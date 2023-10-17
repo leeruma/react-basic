@@ -104,6 +104,7 @@ export default function Community() {
 					<button onClick={resetForm}>cancel</button>
 					<button onClick={createPost}>write</button>
 				</nav>
+				<h4>Lorem ipsum</h4>
 			</div>
 
 			<div className='showBox'>

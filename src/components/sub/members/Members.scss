@@ -1,4 +1,7 @@
 .Members {
+	h1 {
+		text-align: center;
+	}
 	.content {
 		table {
 			width: 100%;
@@ -54,6 +57,59 @@
 				font: 0.8rem/1.2 '돋움';
 				color: hotpink;
 				margin-top: 5px;
+			}
+		}
+	}
+}
+
+// tablet mediaquery
+.tablet,
+.mobile {
+	.Members {
+		.content {
+			table {
+				td {
+					input[type='text'],
+					input[type='password'],
+					textarea,
+					select {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+// mobile mediaquery
+.mobile {
+	.Members {
+		.content {
+			table {
+				th {
+					display: none;
+
+					&:last-child {
+						display: block;
+						width: 100%;
+
+						input {
+							width: 40%;
+						}
+					}
+				}
+				td {
+					width: 100%;
+					border-left: none;
+					padding: 20px 0px;
+
+					input[type='text'],
+					input[type='password'],
+					textarea,
+					select {
+						width: 100%;
+					}
+				}
 			}
 		}
 	}

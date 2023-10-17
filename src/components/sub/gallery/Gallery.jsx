@@ -131,10 +131,10 @@ export default function Gallery() {
 											}}
 										/>
 										{/* <h2>{data.title}</h2> */}
-										<h2>{tit.length > 18 ? tit.substr(0, 18) + '...' : tit}</h2>
-
+										<h2>{tit.length > 20 ? tit.substr(0, 20) + '...' : tit}</h2>
+										<div className='line'></div>
 										<div className='profile'>
-											<img
+											{/* <img
 												src={`http://farm${data.farm}.staticflickr.com/${data.server}/buddyicons/${data.owner}.jpg`}
 												alt={data.owner}
 												onError={(e) => {
@@ -143,7 +143,7 @@ export default function Gallery() {
 														'https://www.flickr.com/images/buddyicon.gif'
 													);
 												}}
-											/>
+											/> */}
 											<span onClick={handleClickProfile}>{data.owner}</span>
 										</div>
 									</div>
