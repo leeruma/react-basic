@@ -36,11 +36,24 @@
 			padding: 15px 30px;
 
 			input[type='text'],
-			input[type='password'] {
+			input[type='password'],
+			textarea,
+			select {
 				width: 40%;
 				border: 1px solid #aaa;
 				padding: 6px 10px;
 				background: #f3ffff;
+				resize: none;
+			}
+			input[type='checkbox'],
+			input[type='radio'] {
+				margin-right: 20px;
+				margin-left: 5px;
+			}
+			p {
+				font: 0.8rem/1.2 '돋움';
+				color: hotpink;
+				margin-top: 5px;
 			}
 		}
 	}

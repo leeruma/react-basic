@@ -1,5 +1,5 @@
 import './styles/Global.scss';
-import './styles/Variable.scss';
+
 import { Route, Switch } from 'react-router-dom';
 import Header from './components/common/header/Header';
 import Department from './components/sub/department/Department';
@@ -11,14 +11,19 @@ import Detail from './components/sub/youtube/Detail';
 import Community from './components/sub/community/Community';
 import Main from './components/main/mainWrap/Main';
 
+import { useMedia } from './hooks/useMedia';
+
 function App() {
+	console.log(useMedia());
+
 	return (
-		<>
+		<main className={useMedia()}>
 			<Switch>
 				<Route exact path='/'>
 					<Header isMain={true} />
 					<Main />
 				</Route>
+
 				<Route path='/'>
 					<Header isMain={false} />
 				</Route>
@@ -30,8 +35,7 @@ function App() {
 			<Route path='/contact' component={Contact} />
 			<Route path='/community' component={Community} />
 			<Route path='/detail/:id' component={Detail} />
-			{/* params는 url에 특정 컴포넌트를 연결할때 url로 정보값을 같이 전달하는것 - 경로/:변수명 */}
-		</>
+		</main>
 	);
 }
 
