@@ -20,7 +20,7 @@ export default function Gallery() {
 		const method_interest = 'flickr.interestingness.getList';
 		const method_user = 'flickr.people.getPhotos';
 		const method_search = 'flickr.photos.search';
-		const num = 10;
+		const num = 9;
 
 		if (opt.type === 'interest') {
 			url = `https://www.flickr.com/services/rest/?method=${method_interest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
@@ -95,18 +95,20 @@ export default function Gallery() {
 	return (
 		<>
 			<Layout title={'Gallery'}>
-				<div className='searchBox'>
-					<form onSubmit={handleSubmit}>
-						<input ref={refInput} type='text' />
-						<button>search</button>
-					</form>
-				</div>
-				<div className='btnSet' ref={refBtnSet}>
-					<button className='on' onClick={handleClickMy}>
-						My Gallery
-					</button>
+				<div className='bigBox'>
+					<div className='searchBox'>
+						<form onSubmit={handleSubmit}>
+							<input ref={refInput} type='text' />
+							<button>search</button>
+						</form>
+					</div>
+					<div className='btnSet' ref={refBtnSet}>
+						<button className='on' onClick={handleClickMy}>
+							My Gallery
+						</button>
 
-					<button onClick={handleClickInterest}>Interest Gallery</button>
+						<button onClick={handleClickInterest}>Interest Gallery</button>
+					</div>
 				</div>
 				<div className='line'></div>
 				<div className='picFrame'>
@@ -131,7 +133,7 @@ export default function Gallery() {
 											}}
 										/>
 										{/* <h2>{data.title}</h2> */}
-										<h2>{tit.length > 20 ? tit.substr(0, 20) + '...' : tit}</h2>
+										<h2>{tit.length > 18 ? tit.substr(0, 18) + '...' : tit}</h2>
 										<div className='line'></div>
 										<div className='profile'>
 											{/* <img

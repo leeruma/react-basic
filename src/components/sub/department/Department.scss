@@ -2,13 +2,10 @@
 	figure {
 		background-color: #222;
 	}
-	h1 {
-		text-align: center;
-	}
 
 	.memberBox {
 		width: 100%;
-		height: 84vh;
+
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
@@ -66,7 +63,6 @@
 		margin-bottom: 40px;
 		border-bottom: 1px solid rgb(196, 196, 196);
 		div {
-			margin-right: 30px;
 			width: 30%;
 			h2 {
 				margin-bottom: 10px;
@@ -128,3 +124,46 @@
 		}
 	}
 }
+
+// //tablet
+// .tablet,
+// .mobile {
+// 	.Department {
+// 		.container {
+// 			flex-wrap: wrap;
+
+// 			.infoBox {
+// 				width: 100%;
+// 				height: 200px;
+// 				margin-bottom: 50px;
+// 			}
+// 			.memberBox {
+// 				width: 100%;
+
+// 				article {
+// 					width: 48%;
+
+// 					h3 {
+// 						font: bold 10px/1 'Nanum Myeongjo';
+// 						color: red;
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+// //mobile
+// .mobile {
+// 	.Department {
+// 		.container {
+// 			.memberBox {
+// 				width: 100%;
+
+// 				article {
+// 					width: 100%;
+// 				}
+// 			}
+// 		}
+// 	}
+// }

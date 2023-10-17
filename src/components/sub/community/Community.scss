@@ -1,16 +1,10 @@
 .Community {
 	.content {
 		h1 {
-			text-align: center;
 			margin-bottom: 60px;
 		}
 
 		.inputBox {
-			h4 {
-				font: 4rem/1 'Nanum Myeongjo';
-				color: #555;
-				transform: translate(3%, -120px);
-			}
 			position: relative;
 			width: 96%;
 			// border: 1px solid #aaa;
@@ -19,10 +13,16 @@
 			margin-bottom: 50px;
 			box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
 
+			h4 {
+				font: 4rem/1 'Nanum Myeongjo';
+				color: #555;
+				transform: translate(3%, -120px);
+			}
+
 			input[type='text'],
 			textarea {
-				transform: translate(90%, 30px);
-				width: 50%;
+				transform: translate(110%, 30px);
+				width: 45%;
 				padding: 8px 10px;
 				border: none;
 				border-bottom: 1px solid #aaa;

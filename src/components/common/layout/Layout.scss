@@ -17,11 +17,33 @@
 			font: normal 80px/1 'Nanum Myeongjo';
 			color: #555;
 			margin-bottom: 30px;
+			text-align: center;
 			span {
 				display: inline-block;
 				opacity: 0;
 				transform: scale(3);
 				transition-duration: 0.5s;
+			}
+		}
+	}
+}
+
+.tablet,
+.mobile {
+	.layout {
+		.content {
+			h1 {
+				font-size: 80px;
+			}
+		}
+	}
+}
+
+.mobile {
+	.layout {
+		.content {
+			h1 {
+				font-size: 70px;
 			}
 		}
 	}
