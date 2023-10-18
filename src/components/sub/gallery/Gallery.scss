@@ -43,12 +43,12 @@
 			left: 0;
 			width: 100%;
 			border-bottom: 2px solid #888;
-			margin-top: 12px;
+			// margin-top: 0px;
 		}
 		.picFrame {
 			width: 100%;
-			position: absolute;
-			left: 0%;
+			// position: absolute;
+			// left: 0%;
 			// display: flex;
 			// justify-content: space-between;
 
@@ -60,10 +60,10 @@
 
 			.masonry {
 				article {
-					width: 30%;
+					width: 25%;
 					// padding: 10px;
 					margin-top: 30px;
-					// margin-right: 80px;
+					margin-right: 80px;
 					margin-bottom: 20px;
 					// display: flex;
 					// justify-content: space-evenly;

@@ -3,6 +3,7 @@
 	padding: 3vh 10vw;
 	display: flex;
 	justify-content: space-between;
+	// background: #efefef;
 
 	h1 {
 		font-size: 1.5rem;
@@ -19,7 +20,8 @@
 
 		li {
 			a.active {
-				color: hotpink;
+				color: #222;
+				font-weight: bold;
 			}
 		}
 	}
