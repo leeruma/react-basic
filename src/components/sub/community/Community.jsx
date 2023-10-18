@@ -3,11 +3,33 @@ import './Community.scss';
 import { useRef, useState, useEffect } from 'react';
 
 export default function Community() {
+	const dummyData = [
+		{
+			title: 'title4',
+			content: 'Here comes content description in detail4.',
+			data: new Date(),
+		},
+		{
+			title: 'title3',
+			content: 'Here comes content description in detail3.',
+			data: new Date(),
+		},
+		{
+			title: 'title2',
+			content: 'Here comes content description in detail2.',
+			data: new Date(),
+		},
+		{
+			title: 'title1',
+			content: 'Here comes content description in detail1.',
+			data: new Date(),
+		},
+	];
 	//로컬데이터의 값을 parsing해서 반환하는 함수
 	const getLocalData = () => {
 		const data = localStorage.getItem('post');
 		if (data) return JSON.parse(data);
-		else return [];
+		else return dummyData;
 	};
 	const refInput = useRef(null);
 	const refTextarea = useRef(null);
