@@ -19,20 +19,19 @@
 				// transform: translate(3%, -120px);
 				display: inline;
 				position: absolute;
-				left: 30px;
-				top: 20px;
+				left: 40px;
+				top: 30px;
 			}
 
 			input[type='text'],
 			textarea {
-				transform: translate(110%, 0px);
-
+				transform: translate(113%, -10px);
 				width: 45%;
 				padding: 8px 10px;
 				border: none;
 				border-bottom: 1px solid #aaa;
 				resize: none;
-				margin-bottom: 25px;
+				margin-bottom: 15px;
 				background: transparent;
 				outline: none;
 			}
@@ -40,15 +39,14 @@
 			.btnSet {
 				position: absolute;
 				right: 3%;
+				margin-top: -8px;
 				button {
-					height: 30px;
 					display: inline-block;
 					border: none;
 					background: transparent;
-					margin-right: 30px;
+					margin-right: 45px;
 					color: #666;
 					cursor: pointer;
-					margin-top: 10px;
 
 					&:hover {
 						color: black;

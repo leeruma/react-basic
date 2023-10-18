@@ -117,6 +117,7 @@ export default function Gallery() {
 						options={{ transitionDuration: '0.5s' }}
 						disableImagesLoaded={false}
 						updateOnEachImageLoad={false}
+						className='masonry'
 					>
 						{Pics.map((data, idx) => {
 							let tit = data.title;
