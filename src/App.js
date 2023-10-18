@@ -14,12 +14,11 @@ import { useMedia } from './hooks/useMedia';
 import { useEffect } from 'react';
 import { fetchYoutube } from './redux/youtubeSlice';
 import { fetchFlickr } from './redux/flickrSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Menu from './components/common/menu/Menu';
 
 function App() {
 	const dispatch = useDispatch();
-	const { isOpen } = useSelector((store) => store.menu);
 
 	useEffect(() => {
 		dispatch(fetchYoutube());
@@ -44,7 +43,7 @@ function App() {
 			<Route path='/contact' component={Contact} />
 			<Route path='/community' component={Community} />
 			<Route path='/detail/:id' component={Detail} />
-			{isOpen && <Menu />}
+			<Menu />
 		</main>
 	);
 }
