@@ -2,39 +2,25 @@
 	h1 {
 		text-align: center;
 	}
-	.content {
-		width: 50%;
 
-		article {
-			width: 100%;
-			display: flex;
-			justify-content: space-between;
-			margin-bottom: 40px;
-			transition: 0.3s;
-			position: relative;
+	article {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 40px;
+		transition: 0.3s;
+		position: relative;
 
-			&:hover {
-				transform: scale(1.05);
-				// background: #dad6d6;
-			}
-			&:nth-of-type(odd) {
-				flex-direction: row-reverse;
-				.conBox {
-					width: 48%;
-					display: inline;
-					text-align: left;
-					transform: translateY(18%);
-					h2,
-					p,
-					span {
-						margin-bottom: 10px;
-					}
-				}
-			}
+		&:hover {
+			transform: scale(1.05);
+			// background: #dad6d6;
+		}
+		&:nth-of-type(odd) {
+			flex-direction: row-reverse;
 			.conBox {
 				width: 48%;
 				display: inline;
-				text-align: right;
+				text-align: left;
 				transform: translateY(18%);
 				h2,
 				p,
@@ -42,16 +28,27 @@
 					margin-bottom: 10px;
 				}
 			}
-			.picBox {
-				width: 48%;
-				height: 190px;
-				box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+		}
+		.conBox {
+			width: 48%;
+			display: inline;
+			text-align: right;
+			transform: translateY(18%);
+			h2,
+			p,
+			span {
+				margin-bottom: 10px;
+			}
+		}
+		.picBox {
+			width: 48%;
+			height: 190px;
+			box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 
-				img {
-					width: 100%;
-					height: 100%;
-					object-fit: cover;
-				}
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
 			}
 		}
 	}

@@ -1,62 +1,60 @@
 .Members {
-	.content {
-		table {
-			width: 100%;
-			border: none;
-			// border-top: 2px solid #333;
-			// border-bottom: 2px solid #333;
+	table {
+		width: 100%;
+		border: none;
+		// border-top: 2px solid #333;
+		// border-bottom: 2px solid #333;
 
-			box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
-		}
+		box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+	}
 
-		th {
-			width: 20%;
-			border: none;
-			// border-bottom: 1px solid #bbb;
-			padding: 15px 30px;
-			text-align: right;
-			&:last-child {
-				text-align: center;
-				input[type='submit'],
-				input[type='reset'] {
-					border: 1px solid #aaa;
-					width: 150px;
-					height: 30px;
-					display: inline-flex;
-					justify-content: center;
-					align-items: center;
-					margin: 0px 10px;
-					cursor: pointer;
-				}
-			}
-		}
-
-		td {
-			border: none;
-			// border-bottom: 1px solid #bbb;
-			// border-left: 1px solid #bbb;
-			padding: 15px 30px;
-
-			input[type='text'],
-			input[type='password'],
-			textarea,
-			select {
-				width: 40%;
+	th {
+		width: 20%;
+		border: none;
+		// border-bottom: 1px solid #bbb;
+		padding: 15px 30px;
+		text-align: right;
+		&:last-child {
+			text-align: center;
+			input[type='submit'],
+			input[type='reset'] {
 				border: 1px solid #aaa;
-				padding: 6px 10px;
-				background: #f3ffff;
-				resize: none;
+				width: 150px;
+				height: 30px;
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;
+				margin: 0px 10px;
+				cursor: pointer;
 			}
-			input[type='checkbox'],
-			input[type='radio'] {
-				margin-right: 20px;
-				margin-left: 5px;
-			}
-			p {
-				font: 0.8rem/1.2 '돋움';
-				color: hotpink;
-				margin-top: 5px;
-			}
+		}
+	}
+
+	td {
+		border: none;
+		// border-bottom: 1px solid #bbb;
+		// border-left: 1px solid #bbb;
+		padding: 15px 30px;
+
+		input[type='text'],
+		input[type='password'],
+		textarea,
+		select {
+			width: 40%;
+			border: 1px solid #aaa;
+			padding: 6px 10px;
+			background: #f3ffff;
+			resize: none;
+		}
+		input[type='checkbox'],
+		input[type='radio'] {
+			margin-right: 20px;
+			margin-left: 5px;
+		}
+		p {
+			font: 0.8rem/1.2 '돋움';
+			color: hotpink;
+			margin-top: 5px;
 		}
 	}
 }
@@ -65,15 +63,13 @@
 .tablet,
 .mobile {
 	.Members {
-		.content {
-			table {
-				td {
-					input[type='text'],
-					input[type='password'],
-					textarea,
-					select {
-						width: 100%;
-					}
+		table {
+			td {
+				input[type='text'],
+				input[type='password'],
+				textarea,
+				select {
+					width: 100%;
 				}
 			}
 		}
@@ -83,31 +79,29 @@
 // mobile mediaquery
 .mobile {
 	.Members {
-		.content {
-			table {
-				th {
-					display: none;
+		table {
+			th {
+				display: none;
 
-					&:last-child {
-						display: block;
-						width: 100%;
+				&:last-child {
+					display: block;
+					width: 100%;
 
-						input {
-							width: 40%;
-						}
+					input {
+						width: 40%;
 					}
 				}
-				td {
-					width: 100%;
-					border-left: none;
-					padding: 20px 0px;
+			}
+			td {
+				width: 100%;
+				border-left: none;
+				padding: 20px 0px;
 
-					input[type='text'],
-					input[type='password'],
-					textarea,
-					select {
-						width: 100%;
-					}
+				input[type='text'],
+				input[type='password'],
+				textarea,
+				select {
+					width: 100%;
 				}
 			}
 		}

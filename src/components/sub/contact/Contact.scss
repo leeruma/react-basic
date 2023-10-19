@@ -1,20 +1,268 @@
 .Contact {
-	.content {
+	.cls {
 		width: 100%;
+		display: flex;
 
-		.cls {
-			width: 100%;
-			display: flex;
+		.upperBox {
+			float: left;
+			background: #333;
+			width: 30%;
+			height: 85vh;
+			position: relative;
+			top: 50px;
+			left: 12%;
+			box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 
-			.upperBox {
-				float: left;
-				background: #333;
-				width: 23%;
-				height: 85vh;
+			#mailBox {
+				background: rgb(52, 52, 52);
+				width: 90%;
+				height: 93%;
+				margin: 0px auto;
+				margin-bottom: 100px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+
+				.upper {
+					width: 100%;
+					display: flex;
+					flex-wrap: wrap;
+					transform: translate(10%, 20%);
+					font: 1rem/1 'Nanum Myeongjo';
+					h2 {
+						color: #eee;
+						margin-bottom: 20px;
+					}
+
+					label {
+						font: 1rem/1 'Nanum Myeongjo';
+						color: #eee;
+						margin-right: 20px;
+						position: relative;
+						top: 10px;
+					}
+					input[type='text'],
+					input[type='email'] {
+						background: rgb(52, 52, 52);
+						border: none;
+						padding: 0px 2px;
+						border-bottom: 1px solid black;
+						outline: none;
+						margin-bottom: 40px;
+						transform: translateY(50%);
+						color: #fff;
+					}
+				}
+
+				.lower {
+					width: 100%;
+					margin-bottom: 10px;
+					transform: translate(10%, 20%);
+
+					label {
+						display: block;
+						margin-bottom: 50px;
+						font: 1rem/1 'Nanum Myeongjo';
+						color: #eee;
+					}
+					textarea {
+						background: rgb(52, 52, 52);
+						width: 80%;
+						height: 20vh;
+						border: none;
+						border-bottom: 1px solid black;
+						margin-right: 50px;
+						resize: none;
+						outline: none;
+						margin-bottom: 80px;
+						transform: translateY(-20%);
+						color: #fff;
+					}
+				}
+
+				.btnSet {
+					display: flex;
+					justify-content: space-between;
+					gap: 50px;
+					display: flex;
+					justify-content: space-evenly;
+					input {
+						width: 80%;
+						height: 40px;
+						background: #dfdede;
+						font: 1rem/1 'Nanum Myeongjo';
+						text-align: center;
+						border: none;
+					}
+				}
+			}
+		}
+
+		#mapBox {
+			float: left;
+			width: 60%;
+			position: absolute;
+			top: 35.8%;
+			left: 42%;
+			box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+
+			.container {
+				width: 100%;
+				height: 60vh;
+				background: #111;
 				position: relative;
-				top: 50px;
-				left: 24%;
-				box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+
+				.map,
+				.view {
+					width: 100%;
+					height: 100%;
+					background: #111;
+					position: absolute;
+					top: 0;
+					left: 0;
+					opacity: 0;
+					z-index: 1;
+
+					&.on {
+						opacity: 1;
+						z-index: 2;
+					}
+				}
+			}
+		}
+
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+			font: 0.6rem/1 'Nanum Myeongjo';
+			justify-content: center;
+			li {
+				width: 85%;
+				cursor: pointer;
+				border: 1px solid black;
+				border-radius: 5%;
+				padding: 15px 10px;
+				text-align: center;
+			}
+
+			li.on {
+				background: #333;
+				color: #efefef;
+			}
+		}
+	}
+
+	.temp {
+		float: left;
+		width: 100px;
+		height: 60vh;
+		background: #efefef;
+		position: absolute;
+		top: 35.5%;
+		left: 2%;
+		box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+
+		.btnSet {
+			display: flex;
+			flex-wrap: wrap;
+			margin-bottom: 80px;
+			justify-content: center;
+			position: relative;
+			top: 13%;
+
+			button {
+				width: 85%;
+				height: 40px;
+				font: 0.7rem/1 'Nanum Myeongjo';
+				text-align: center;
+				margin-bottom: 10px;
+			}
+		}
+	}
+
+	.textBox {
+		margin-top: 200px;
+		width: 100%;
+		height: 30vh;
+		// background: #222;
+		opacity: 1;
+
+		.conBox {
+			width: 70vw;
+			margin: 5vh auto;
+			min-height: 60vh;
+			opacity: 1;
+			color: #333;
+			display: flex;
+			justify-content: space-between;
+
+			.icon {
+				i {
+					margin-top: 5px;
+					margin-right: 8px;
+					font-size: 18px;
+				}
+			}
+
+			div {
+				width: 20%;
+
+				h3 {
+					margin-top: 20px;
+
+					font: bold 1.3rem/1 'Nanum Myeongjo';
+					margin-bottom: 10px;
+					color: #333;
+				}
+				p {
+					margin-top: 10px;
+					margin-bottom: 12px;
+
+					span {
+						display: block;
+					}
+					a {
+						display: block;
+						margin-bottom: 15px;
+						font: bold 1rem/1 'arial';
+					}
+
+					.bt {
+						input[type='text'] {
+							width: 100%;
+							height: 30px;
+							display: flex;
+							flex-wrap: wrap;
+							border: none;
+							margin-bottom: 10px;
+							outline: none;
+							padding: 0 5px;
+						}
+						button {
+							width: 100%;
+							height: 40px;
+							font: 0.7rem/1 'Nanum Myeongjo';
+							text-align: center;
+							margin-bottom: 10px;
+							border: none;
+							background: #333;
+							color: #efefef;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.tablet,
+.mobile {
+	.Contact {
+		.cls {
+			.upperBox {
+				width: 30%;
 
 				#mailBox {
 					background: rgb(52, 52, 52);
@@ -184,356 +432,77 @@
 				}
 			}
 		}
-		// .line {
-		// 	width: 100%;
-		// 	display: flex;
-		// 	position: relative;
-		// 	top: 50%;
-		// 	left: 55.5%;
-		// 	transform: translate(-55%, -50%);
-		// 	border-bottom: 1px solid black;
-		// 	margin-top: 100px;
-		// 	margin-bottom: 30px;
-		// }
-
-		.textBox {
-			margin-top: 200px;
-			width: 100%;
-			height: 30vh;
-			background: #222;
-			opacity: 1;
-
-			.conBox {
-				width: 70vw;
-				margin: 5vh auto;
-				min-height: 60vh;
-				opacity: 1;
-				color: #c9c9c9;
-				display: flex;
-				justify-content: space-between;
-
-				.icon {
-					i {
-						margin-top: 5px;
-						margin-right: 8px;
-						font-size: 18px;
-					}
-				}
-
-				div {
-					width: 20%;
-
-					h3 {
-						margin-top: 20px;
-
-						font: bold 1.3rem/1 'Nanum Myeongjo';
-						margin-bottom: 10px;
-						color: #efefef;
-					}
-					p {
-						margin-top: 10px;
-						margin-bottom: 12px;
-
-						span {
-							display: block;
-						}
-						a {
-							display: block;
-							margin-bottom: 15px;
-							font: bold 1rem/1 'arial';
-						}
-
-						.bt {
-							input[type='text'] {
-								width: 100%;
-								height: 30px;
-								display: flex;
-								flex-wrap: wrap;
-								border: none;
-								margin-bottom: 10px;
-								outline: none;
-								padding: 0 5px;
-							}
-							button {
-								width: 100%;
-								height: 40px;
-								font: 0.7rem/1 'Nanum Myeongjo';
-								text-align: center;
-								margin-bottom: 10px;
-								border: none;
-								background: #333;
-								color: #efefef;
-							}
-						}
-					}
-				}
-			}
+		.line {
+			width: 70.5%;
+			display: flex;
+			position: relative;
+			top: 50%;
+			left: 55.5%;
+			transform: translate(-55%, -50%);
+			border-bottom: 1px solid black;
+			margin-top: 100px;
+			margin-bottom: 30px;
 		}
 
-		// .text {
-		// 	width: 100%;
-		// 	height: 30vh;
-		// 	position: relative;
-		// 	// top: 80%;
-		// 	left: 55.5%;
-		// 	transform: translate(-55%, 0);
-		// 	display: flex;
-		// 	justify-content: space-evenly;
-		// 	background: #222;
-		// 	margin-top: 100px;
-		// 	color: #e0dfdf;
-		// }
-	}
-}
+		.text {
+			width: 70.5%;
+			position: relative;
+			top: 80%;
+			left: 55.5%;
+			transform: translate(-55%, 0);
+			display: flex;
+			justify-content: space-between;
 
-.tablet,
-.mobile {
-	.Contact {
-		.content {
-			.cls {
-				.upperBox {
-					width: 30%;
+			div {
+				width: 18%;
+			}
 
-					#mailBox {
-						background: rgb(52, 52, 52);
-						width: 90%;
-						height: 93%;
-						margin: 0px auto;
-						margin-bottom: 100px;
-						position: absolute;
-						top: 50%;
-						left: 50%;
-						transform: translate(-50%, -50%);
-
-						.upper {
-							width: 100%;
-							display: flex;
-							flex-wrap: wrap;
-							transform: translate(10%, 20%);
-							font: 1rem/1 'Nanum Myeongjo';
-							h2 {
-								color: #eee;
-								margin-bottom: 20px;
-							}
-
-							label {
-								font: 1rem/1 'Nanum Myeongjo';
-								color: #eee;
-								margin-right: 20px;
-								position: relative;
-								top: 10px;
-							}
-							input[type='text'],
-							input[type='email'] {
-								background: rgb(52, 52, 52);
-								border: none;
-								padding: 0px 2px;
-								border-bottom: 1px solid black;
-								outline: none;
-								margin-bottom: 40px;
-								transform: translateY(50%);
-								color: #fff;
-							}
-						}
-
-						.lower {
-							width: 100%;
-							margin-bottom: 10px;
-							transform: translate(10%, 20%);
-
-							label {
-								display: block;
-								margin-bottom: 50px;
-								font: 1rem/1 'Nanum Myeongjo';
-								color: #eee;
-							}
-							textarea {
-								background: rgb(52, 52, 52);
-								width: 80%;
-								height: 20vh;
-								border: none;
-								border-bottom: 1px solid black;
-								margin-right: 50px;
-								resize: none;
-								outline: none;
-								margin-bottom: 80px;
-								transform: translateY(-20%);
-								color: #fff;
-							}
-						}
-
-						.btnSet {
-							display: flex;
-							justify-content: space-between;
-							gap: 50px;
-							display: flex;
-							justify-content: space-evenly;
-							input {
-								width: 80%;
-								height: 40px;
-								background: #dfdede;
-								font: 1rem/1 'Nanum Myeongjo';
-								text-align: center;
-								border: none;
-							}
-						}
-					}
-				}
-
-				#mapBox {
-					float: left;
-					width: 40%;
-					position: absolute;
-					top: 41%;
-					left: 47%;
-					box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-
-					.container {
-						width: 100%;
-						height: 60vh;
-						background: #111;
-						position: relative;
-
-						.map,
-						.view {
-							width: 100%;
-							height: 100%;
-							background: #111;
-							position: absolute;
-							top: 0;
-							left: 0;
-							opacity: 0;
-							z-index: 1;
-
-							&.on {
-								opacity: 1;
-								z-index: 2;
-							}
-						}
-					}
-				}
-
-				ul {
-					display: flex;
-					flex-wrap: wrap;
-					gap: 10px;
-					font: 0.6rem/1 'Nanum Myeongjo';
-					justify-content: center;
-					li {
-						width: 85%;
-						cursor: pointer;
-						border: 1px solid black;
-						border-radius: 5%;
-						padding: 15px 10px;
-						text-align: center;
-					}
-
-					li.on {
-						background: #333;
-						color: #efefef;
-					}
+			.icon {
+				i {
+					margin-top: 5px;
+					margin-right: 10px;
+					font-size: 18px;
 				}
 			}
 
-			.temp {
-				float: left;
-				width: 100px;
-				height: 60vh;
-				background: #efefef;
-				position: absolute;
-				top: 41%;
-				left: 17%;
-				box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-
-				.btnSet {
-					display: flex;
-					flex-wrap: wrap;
-					margin-bottom: 80px;
-					justify-content: center;
-					position: relative;
-					top: 13%;
-
-					button {
-						width: 85%;
-						height: 40px;
-						font: 0.7rem/1 'Nanum Myeongjo';
-						text-align: center;
-						margin-bottom: 10px;
-					}
-				}
+			h3 {
+				font: bold 1.3rem/1 'Nanum Myeongjo';
+				margin-bottom: 5px;
 			}
-			.line {
-				width: 70.5%;
-				display: flex;
-				position: relative;
-				top: 50%;
-				left: 55.5%;
-				transform: translate(-55%, -50%);
-				border-bottom: 1px solid black;
-				margin-top: 100px;
-				margin-bottom: 30px;
-			}
+			p {
+				margin-top: 10px;
+				margin-bottom: 12px;
 
-			.text {
-				width: 70.5%;
-				position: relative;
-				top: 80%;
-				left: 55.5%;
-				transform: translate(-55%, 0);
-				display: flex;
-				justify-content: space-between;
-
-				div {
-					width: 18%;
-				}
-
-				.icon {
-					i {
-						margin-top: 5px;
-						margin-right: 10px;
-						font-size: 18px;
-					}
-				}
-
-				h3 {
-					font: bold 1.3rem/1 'Nanum Myeongjo';
-					margin-bottom: 5px;
-				}
-				p {
-					margin-top: 10px;
-					margin-bottom: 12px;
-
-					span {
-						display: block;
-					}
-				}
-				a {
+				span {
 					display: block;
-					margin-bottom: 15px;
-					font: bold 1rem/1 'arial';
 				}
+			}
+			a {
+				display: block;
+				margin-bottom: 15px;
+				font: bold 1rem/1 'arial';
+			}
 
-				.bt {
-					input[type='text'] {
-						width: 100%;
-						height: 30px;
-						display: flex;
-						flex-wrap: wrap;
-						border: none;
-						margin-bottom: 10px;
-						outline: none;
-						padding: 0 5px;
-					}
-					button {
-						width: 100%;
-						height: 40px;
-						font: 0.7rem/1 'Nanum Myeongjo';
-						text-align: center;
-						margin-bottom: 10px;
-						border: none;
-						background: #333;
-						color: #efefef;
-					}
+			.bt {
+				input[type='text'] {
+					width: 100%;
+					height: 30px;
+					display: flex;
+					flex-wrap: wrap;
+					border: none;
+					margin-bottom: 10px;
+					outline: none;
+					padding: 0 5px;
+				}
+				button {
+					width: 100%;
+					height: 40px;
+					font: 0.7rem/1 'Nanum Myeongjo';
+					text-align: center;
+					margin-bottom: 10px;
+					border: none;
+					background: #333;
+					color: #efefef;
 				}
 			}
 		}
