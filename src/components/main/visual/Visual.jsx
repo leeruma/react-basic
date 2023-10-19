@@ -14,11 +14,12 @@ function Visual() {
 			<div className='titBox'>
 				<ul>
 					{data.map((tit, idx) => {
+						let tit1 = tit.snippet.title;
 						if (idx >= 5) return null;
 						return (
 							<li key={idx} className={idx === Index ? 'on' : ''}>
-								<h3>{tit.snippet.title}</h3>
-								<p>{tit.snippet.description.substr(0, 300) + '...'}</p>
+								<h3>{tit1.length > 18 ? tit1.substr(0, 18) + '...' : tit1}</h3>
+								<p>{tit.snippet.description.substr(0, 150) + '...'}</p>
 								<button>View Deatil</button>
 							</li>
 						);
