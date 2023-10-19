@@ -7,13 +7,13 @@ function Visual() {
 	const { data } = useSelector((store) => store.youtube);
 	return (
 		<section className='visual'>
-			<Swiper>
+			<Swiper slidesPerView={3} spaceBetween={50} loop={true} centeredSlides={true}>
 				{data.map((vid, idx) => {
 					if (idx >= 5) return null;
 					return (
 						<SwiperSlide key={idx}>
-							<div className='inner'>
-								<h2>{vid.snippet.title}</h2>
+							<div className='pic'>
+								<img src={vid.snippet.thumbnails.maxres.url} alt={vid.title} />
 							</div>
 						</SwiperSlide>
 					);
