@@ -39,7 +39,7 @@ function News() {
 	}, []);
 
 	return (
-		<section className='news'>
+		<section className='news myScroll'>
 			<h2>News</h2>
 			<div className='postWrap'>
 				{Post.map((el, idx) => {

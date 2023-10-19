@@ -18,7 +18,7 @@
 		&:nth-of-type(odd) {
 			flex-direction: row-reverse;
 			.conBox {
-				width: 48%;
+				width: 55%;
 				display: inline;
 				text-align: left;
 				transform: translateY(18%);
@@ -30,7 +30,7 @@
 			}
 		}
 		.conBox {
-			width: 48%;
+			width: 55%;
 			display: inline;
 			text-align: right;
 			transform: translateY(18%);
@@ -41,7 +41,7 @@
 			}
 		}
 		.picBox {
-			width: 48%;
+			width: 43%;
 			height: 190px;
 			box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 
