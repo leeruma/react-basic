@@ -22,6 +22,7 @@ export default function Footer() {
 							<span>Lorem, ipsum.</span>
 						</p>
 						<a href='#/Contact.jsx'>shop</a>
+						<br />
 						<a href='#/Contact.jsx'>today's event</a>
 					</div>
 					<div className='icon'>

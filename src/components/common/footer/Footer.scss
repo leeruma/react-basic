@@ -1,15 +1,15 @@
 .textBox {
-	border-top: 1px solid #aaa;
 	width: 100%;
 	opacity: 1;
 
 	.conBox {
-		width: 80vw;
+		border-top: 1px solid #aaa;
+		width: 100%;
 		margin: 5vh auto;
 		opacity: 1;
 		color: #333;
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-evenly;
 		margin-top: -1px;
 
 		.icon {
@@ -46,7 +46,7 @@
 		}
 		.bt {
 			input[type='text'] {
-				width: 100%;
+				width: 80%;
 				height: 30px;
 				display: flex;
 				flex-wrap: wrap;
@@ -56,7 +56,7 @@
 				padding: 0 5px;
 			}
 			button {
-				width: 100%;
+				width: 80%;
 				height: 40px;
 				font: 0.7rem/1 'Nanum Myeongjo';
 				text-align: center;

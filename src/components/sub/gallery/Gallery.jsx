@@ -11,6 +11,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchFlickr } from '../../../redux/flickrSlice';
 import { open } from '../../../redux/modalSlice';
 
+//메뉴 빠르게 이동시 에러가 뜨는 경우
+//원인 : 특정 컴포넌트에 시간이 오래 걸리는 연산작업후 그 결과물을 state에 미처 담기도 전에 컴포넌트가 언마운트 되는 경우 (메모리 누수)
+//해결 방법: 특정 State값이 true일때에만 state에 무거운 값이 담기도록 처리해주고 컴포넌트 unmount시에 해당 값을 false변경
+//컴포넌트 언마운트 될때쯤 state에 담길 값이 준비되지 않으면 state에 값 담기는 걸 무시
 export default function Gallery() {
 	const dispatch = useDispatch();
 	const Pics = useSelector((store) => store.flickr.data);
@@ -95,25 +99,27 @@ export default function Gallery() {
 						updateOnEachImageLoad={false}
 						className='masonry'
 					>
-						{Pics.map((data, idx) => {
-							let tit = data.title;
-							return (
-								<article key={idx}>
-									<div className='inner'>
-										<img
-											className='pic'
-											src={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_m.jpg`}
-											alt={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_b.jpg`}
-											onClick={(e) => {
-												setActiveURL(e.target.getAttribute('alt'));
-												dispatch(open());
-											}}
-										/>
-										{/* <h2>{data.title}</h2> */}
-										<h2>{tit.length > 18 ? tit.substr(0, 18) + '...' : tit}</h2>
-										<div className='line'></div>
-										<div className='profile'>
-											{/* <img
+						{/* 해당 데이터가 어떤이유에서건 없을때 해당 객체안의 property를 호출할 때 런타임 에러가 뜨는 경우이므로 배열값 자체가 없으면 렌더링을 안해서 property오류 해결 */}
+						{Pics.length !== 0 &&
+							Pics.map((data, idx) => {
+								let tit = data.title;
+								return (
+									<article key={idx}>
+										<div className='inner'>
+											<img
+												className='pic'
+												src={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_m.jpg`}
+												alt={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_b.jpg`}
+												onClick={(e) => {
+													setActiveURL(e.target.getAttribute('alt'));
+													dispatch(open());
+												}}
+											/>
+											{/* <h2>{data.title}</h2> */}
+											<h2>{tit.length > 18 ? tit.substr(0, 18) + '...' : tit}</h2>
+											<div className='line'></div>
+											<div className='profile'>
+												{/* <img
 												src={`http://farm${data.farm}.staticflickr.com/${data.server}/buddyicons/${data.owner}.jpg`}
 												alt={data.owner}
 												onError={(e) => {
@@ -123,12 +129,12 @@ export default function Gallery() {
 													);
 												}}
 											/> */}
-											<span onClick={handleClickProfile}>{data.owner}</span>
+												<span onClick={handleClickProfile}>{data.owner}</span>
+											</div>
 										</div>
-									</div>
-								</article>
-							);
-						})}
+									</article>
+								);
+							})}
 					</Masonry>
 				</div>
 			</Layout>
