@@ -52,4 +52,14 @@ ReactDOM.render(
 	- index.js를 구동파일로 해서 App.js에 모든 컴포넌트를 불러온다음 내부적으로 내장되어있는 webpack이라는 번들러에 의해서 하나의 js파일로 번들링되고 번들링된 파일이 index.js에 의해서 public폴더 안쪽에 있는 index.html에 합치면서 최종 빌드가 완료됨
 	- 그럼 브라우저에서는 빌드완료된 index.html을 읽어서 화면 렌더링
 	
+redux-toolkit으로 클라이언트, 서버 데이터 구분없이 전역상태관리의 문제점
+	- 기존에는 서버사이드 데이터로 전역store에 static하게 저장을 하다보니 실시간으로 자주바뀌는 데이터 경우에는
+	- 결국 전역 store에 최신데이터가아닌 예전 데이터를 관리하게 됨 
+	- 서버 데이터를 전역에 저장하는 것 자체가 잘못된 방식이기 때문에 
+	- 서버 데이터가 필요할때마다 계속 가져와야됨
+	- 새로 fetching을 할때 이미 불러온적이 있는 똑같은 데이터경우는 caching 처리된 데이터를 재활용해서 불필요한 refetching방지
+
+	client-side-data (useContext를 활용한 커스텀훅을 전역관리)
+	server-side-data (react-query를 활용해서 전역상태로 저장하는 것이 아닌 캐싱처리)
+
 */

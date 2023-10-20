@@ -1,8 +1,9 @@
 .info {
 	width: 100%;
 	height: 100vh;
-	background: orange;
+	background: transparent;
 	padding: 5vw;
+	border-top: 1px solid #aaa;
 
 	.wrap {
 		width: 100%;
