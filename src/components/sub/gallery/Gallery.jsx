@@ -5,25 +5,25 @@
 import Layout from '../../common/layout/Layout';
 import Modal from '../../common/modal/Modal';
 import './Gallery.scss';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Masonry from 'react-masonry-component';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchFlickr } from '../../../redux/flickrSlice';
 import { open } from '../../../redux/modalSlice';
+import { useFlickrQuery } from '../../../hooks/useFlickr';
 
 //메뉴 빠르게 이동시 에러가 뜨는 경우
 //원인 : 특정 컴포넌트에 시간이 오래 걸리는 연산작업후 그 결과물을 state에 미처 담기도 전에 컴포넌트가 언마운트 되는 경우 (메모리 누수)
 //해결 방법: 특정 State값이 true일때에만 state에 무거운 값이 담기도록 처리해주고 컴포넌트 unmount시에 해당 값을 false변경
 //컴포넌트 언마운트 될때쯤 state에 담길 값이 준비되지 않으면 state에 값 담기는 걸 무시
 export default function Gallery() {
-	const dispatch = useDispatch();
-	const Pics = useSelector((store) => store.flickr.data);
-
+	const dispatch = useDispatch;
 	const refInput = useRef(null);
 	const refBtnSet = useRef(null);
 	const [ActiveURL, setActiveURL] = useState('');
 	const [IsUser, setIsUser] = useState(true);
 	const my_id = '199296342@N06';
+	const [Opt, setOpt] = useState({ type: 'user', id: my_id });
+	const { data: Pics, isSuccess } = useFlickrQuery(Opt);
 
 	//submit이벤트 발생시 실행할 함수
 	const handleSubmit = (e) => {
@@ -37,7 +37,7 @@ export default function Gallery() {
 			return alert('검색어를 입력하세요.');
 		}
 
-		dispatch(fetchFlickr({ type: 'search', tags: refInput.current.value }));
+		setOpt({ type: 'search', tags: refInput.current.value });
 		refInput.current.value = '';
 	};
 
@@ -50,7 +50,7 @@ export default function Gallery() {
 		btns.forEach((btn) => btn.classList.remove('on'));
 		e.target.classList.add('on');
 
-		dispatch(fetchFlickr({ type: 'user', id: my_id }));
+		setOpt({ type: 'user', id: my_id });
 	};
 
 	//Interest Gallery 클릭 이벤트 발생시 실행할 함수
@@ -62,13 +62,13 @@ export default function Gallery() {
 		btns.forEach((btn) => btn.classList.remove('on'));
 		e.target.classList.add('on');
 
-		dispatch(fetchFlickr({ type: 'interest' }));
+		setOpt({ type: 'interest' });
 	};
 
 	//profile 아이디 클릭시 실행할 함수
 	const handleClickProfile = (e) => {
 		if (IsUser) return;
-		dispatch(fetchFlickr({ type: 'user', id: e.target.innerText }));
+		setOpt({ type: 'user', id: e.target.innerText });
 		setIsUser(true);
 	};
 
@@ -100,7 +100,7 @@ export default function Gallery() {
 						className='masonry'
 					>
 						{/* 해당 데이터가 어떤이유에서건 없을때 해당 객체안의 property를 호출할 때 런타임 에러가 뜨는 경우이므로 배열값 자체가 없으면 렌더링을 안해서 property오류 해결 */}
-						{Pics.length !== 0 &&
+						{isSuccess &&
 							Pics.map((data, idx) => {
 								let tit = data.title;
 								return (

@@ -28,7 +28,7 @@ const fetchFlickr = async ({ queryKey }) => {
 
 export const useFlickrQuery = (opt) => {
 	// 옵션이 들어가는 데이터인 경우에는 옵션에 따라 반환되는 값은 다른데 쿼리키가 동일하면 문제가 발생하기 때문에 옵션값까지 통채로 쿼리키로 묶어놓으면 옵션에 따른 결과값으로 고유쿼리키가 자동으로 만들어짐
-	return useQuery(['flickData', opt], fetchFlickr, {
+	return useQuery(['flickrData', opt], fetchFlickr, {
 		refetchOnMount: false,
 		refetchOnWindowFocus: false,
 		staleTime: 100 * 60 * 60,
