@@ -5,36 +5,38 @@
 import Layout from '../../common/layout/Layout';
 import './Youtube.scss';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import { useSelector } from 'react-redux';
+import { useYoutubeQuery } from '../../../hooks/useYoutube';
 
 export default function Youtube() {
-	const Youtube = useSelector((store) => store.youtube.data);
+	const { data: Youtube, isSuccess } = useYoutubeQuery();
+
 	return (
 		<>
 			<Layout title={'Youtube'}>
-				{Youtube.map((data, idx) => {
-					let tit = data.snippet.title;
-					let desc = data.snippet.description;
-					let date = data.snippet.publishedAt;
+				{isSuccess &&
+					Youtube.map((data, idx) => {
+						let tit = data.snippet.title;
+						let desc = data.snippet.description;
+						let date = data.snippet.publishedAt;
 
-					return (
-						<article key={idx}>
-							<div className='conBox'>
-								<h2>{tit.length > 18 ? tit.substr(0, 18) + '...' : tit}</h2>
+						return (
+							<article key={idx}>
+								<div className='conBox'>
+									<h2>{tit.length > 18 ? tit.substr(0, 18) + '...' : tit}</h2>
 
-								<p>{desc.length > 80 ? desc.substr(0, 80) + '...' : desc}</p>
-								<span>{date.split('T')[0].split('-').join('.')}</span>
-							</div>
+									<p>{desc.length > 80 ? desc.substr(0, 80) + '...' : desc}</p>
+									<span>{date.split('T')[0].split('-').join('.')}</span>
+								</div>
 
-							<div className='picBox'>
-								{/* 썸네일 링크 클릭시 특정유튜브 객체 하나의 정보값을 받기 위해서 유튜브 객체의 id값을 params로 전달 */}
-								<Link to={`/detail/${data.id}`}>
-									<img src={data.snippet.thumbnails.standard.url} alt={data.title} />
-								</Link>
-							</div>
-						</article>
-					);
-				})}
+								<div className='picBox'>
+									{/* 썸네일 링크 클릭시 특정유튜브 객체 하나의 정보값을 받기 위해서 유튜브 객체의 id값을 params로 전달 */}
+									<Link to={`/detail/${data.id}`}>
+										<img src={data.snippet.thumbnails.standard.url} alt={data.title} />
+									</Link>
+								</div>
+							</article>
+						);
+					})}
 			</Layout>
 
 			{/* {IsModal && (
