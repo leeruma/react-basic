@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 function Visual() {
 	const { data } = useSelector((store) => store.youtube);
 	const [Index, setIndex] = useState(0);
-	console.log(data);
 
 	return (
 		<section className='visual'>

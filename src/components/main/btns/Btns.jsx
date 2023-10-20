@@ -18,13 +18,26 @@ function Btns() {
 		setNum(pos.current.length);
 	};
 
+	// 브라우저 리사이즈시 현재 세로 스크롤값을 갱신하는 함수
+	const modifyPos = () => {
+		let activeIndex = 0;
+		const lis = refBtns.current.querySelectorAll('li');
+		lis.forEach((li, idx) => {
+			li.classList.contains('on') && (activeIndex = idx);
+		});
+		window.scrollTo(0, pos.current[activeIndex]);
+	};
+
 	//브라우저 스크롤시 버튼을 반복돌면서 스크롤이 특정 섹션영역을 넘어가면 해당 순번의 버튼 활성화 함수
 	const activation = () => {
+		// 컴포넌트 언마운트시 querySelector앞에 null 오류가 뜰때에는
+		// 해결방법 - 해당 값이 없을때 return으로 강제 함수 종료
+		if (!refBtns.current) return;
 		const btns = refBtns.current.querySelectorAll('li');
 		const scroll = window.scrollY;
 
 		pos.current.forEach((el, idx) => {
-			if (scroll >= el) {
+			if (scroll >= el - window.innerHeight / 2) {
 				for (let btn of btns) btn.classList.remove('on');
 				btns[idx].classList.add('on');
 			}
@@ -35,13 +48,17 @@ function Btns() {
 	const throttledGetPos = useThrottle(getPos);
 
 	useEffect(() => {
+		modifyPos();
 		getPos();
 		window.addEventListener('resize', throttledGetPos);
+		window.addEventListener('resize', modifyPos);
 		window.addEventListener('scroll', throttledActivation);
 
 		return () => {
 			window.removeEventListener('resize', throttledGetPos);
+			window.removeEventListener('resize', modifyPos);
 			window.removeEventListener('scroll', throttledActivation);
+			window.scrollTo(0, 0);
 		};
 	}, []);
 
