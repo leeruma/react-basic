@@ -299,7 +299,7 @@ export default function Members() {
 								</tr>
 
 								{/* comments */}
-								<tr>
+								<tr className='com'>
 									<th>
 										<label htmlFor='comments'>Comments</label>
 									</th>
@@ -318,7 +318,7 @@ export default function Members() {
 								</tr>
 
 								{/* btnSet */}
-								<tr>
+								<tr className='btn'>
 									<th colSpan='2'>
 										<input type='reset' value='cancel' onClick={resetForm} />
 										<input type='submit' value='send' />
