@@ -15,7 +15,7 @@ export default function Layout({ title, children }) {
 		setTimeout(() => {
 			refFrame.current.classList.add('on');
 		}, 300);
-	}, []);
+	}, [splitText]);
 
 	return (
 		<section ref={refFrame} className={`layout ${title}`}>

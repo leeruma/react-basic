@@ -1,22 +1,20 @@
 import './Menu.scss';
 import { Link, NavLink } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useSelector, useDispatch } from 'react-redux';
-import { close } from '../../../redux/menuSlice';
+import { useGloblaData } from '../../../hooks/useGlobalContext';
 
 function Menu() {
-	const dispatch = useDispatch();
-	const { isOpen } = useSelector((store) => store.menu);
+	const { MenuOpen, setMenuOpen } = useGloblaData();
 	return (
 		<AnimatePresence>
-			{isOpen && (
+			{MenuOpen && (
 				<motion.aside
 					className='menu'
 					initial={{ x: '-100%' }}
 					animate={{ x: '0%' }}
 					exit={{ x: '-100%' }}
 					transition={{ duration: 0.5 }}
-					onClick={() => dispatch(close())}
+					onClick={() => setMenuOpen(false)}
 				>
 					<h1>
 						<Link to='/'>LOGO</Link>

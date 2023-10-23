@@ -1,13 +1,11 @@
-/*
-	해당 페이지에서 설명해보라, 혹시 이슈사항은 없었는지?
-*/
+//해당 페이지에서 설명해보라, 혹시 이슈사항은 없었는지?
 
 import Layout from '../../common/layout/Layout';
 import './Community.scss';
 import { useRef, useState, useEffect } from 'react';
 
 export default function Community() {
-	const dummyData = [
+	const dummyData = useRef([
 		{
 			title: 'title4',
 			content: 'Here comes content description in detail4.',
@@ -28,19 +26,16 @@ export default function Community() {
 			content: 'Here comes content description in detail1.',
 			data: new Date(),
 		},
-	];
-	//로컬데이터의 값을 parsing해서 반환하는 함수
+	]);
 	const getLocalData = () => {
 		const data = localStorage.getItem('post');
 		if (data) return JSON.parse(data);
-		else return dummyData;
+		else return dummyData.current;
 	};
 	const refInput = useRef(null);
 	const refTextarea = useRef(null);
 	const refEditInput = useRef(null);
 	const refEditTextarea = useRef(null);
-	//해당 컴포넌트가 처음 마운트시에는 로컬저장소에 값이 없기 때문에 빈배열 리턴
-	//저장소에 값이 있으면 해당값을 parsing된 데이터가 있는 배열값을 리턴
 	const [Posts, setPosts] = useState(getLocalData());
 	const [Allowed, setAllowed] = useState(true);
 	console.log(Posts);
