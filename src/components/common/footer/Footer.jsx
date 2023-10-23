@@ -35,7 +35,7 @@ export default function Footer() {
 					<div className='bt'>
 						<h3>Quisquam</h3>
 						<span>
-							<input type='text' name='user_name' />
+							<input type='text' name='user_name' placeholder='search word' />
 							<button>Search</button>
 						</span>
 					</div>

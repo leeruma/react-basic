@@ -5,7 +5,7 @@
 import Layout from '../../common/layout/Layout';
 import Modal from '../../common/modal/Modal';
 import './Gallery.scss';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import Masonry from 'react-masonry-component';
 import { useFlickrQuery } from '../../../hooks/useFlickr';
 import { useGloblaData } from '../../../hooks/useGlobalContext';
@@ -96,7 +96,6 @@ export default function Gallery() {
 						options={{ transitionDuration: '0.5s' }}
 						disableImagesLoaded={false}
 						updateOnEachImageLoad={false}
-						className='masonry'
 					>
 						{/* 해당 데이터가 어떤이유에서건 없을때 해당 객체안의 property를 호출할 때 런타임 에러가 뜨는 경우이므로 배열값 자체가 없으면 렌더링을 안해서 property오류 해결 */}
 						{isSuccess &&
@@ -118,16 +117,6 @@ export default function Gallery() {
 											<h2>{tit.length > 18 ? tit.substr(0, 18) + '...' : tit}</h2>
 											<div className='line'></div>
 											<div className='profile'>
-												{/* <img
-												src={`http://farm${data.farm}.staticflickr.com/${data.server}/buddyicons/${data.owner}.jpg`}
-												alt={data.owner}
-												onError={(e) => {
-													e.target.setAttribute(
-														'src',
-														'https://www.flickr.com/images/buddyicon.gif'
-													);
-												}}
-											/> */}
 												<span onClick={handleClickProfile}>{data.owner}</span>
 											</div>
 										</div>

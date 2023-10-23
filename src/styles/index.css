@@ -1,6 +1,10 @@
 :root {
-	--laptop: 1399px;
-	--tablet: 999px;
-	--mobile: 639px;
-	--color1: red;
+	--bg: #eaeaea;
+	--color: #222;
+	--darkBg: #222;
+	--darkColor: #fff;
 }
+
+/*
+	scss변수는 빌드시 리액트 웹팩에서 컴파일되야 적용이 되므로
+*/

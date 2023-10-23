@@ -14,7 +14,26 @@ a {
 	color: inherit;
 }
 body {
-	background: #eaeaea;
+	width: 100%;
+	overflow-x: hidden;
+	color: var(--color);
+	background: var(--bg);
+
+	main {
+		width: 100%;
+		background: var(--bg);
+		color: var(--color);
+	}
+	main.light {
+		background: var(--bg);
+	}
+	main.dark {
+		background: var(--darkBg);
+		color: var(--darkColor);
+		.btnTheme {
+			color: #c1c1c1;
+		}
+	}
 }
 html {
 	&::-webkit-scrollbar {

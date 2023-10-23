@@ -26,7 +26,7 @@ function Visual() {
 							if (idx >= 5) return null;
 							return (
 								<li key={idx} className={idx === Index ? 'on' : ''}>
-									<h3>{tit1.length > 18 ? tit1.substr(0, 18) + '...' : tit1}</h3>
+									<h3>{tit1.length > 18 ? tit1.substr(0, 18) + '' : tit1}</h3>
 									<p>{tit.snippet.description.substr(0, 150) + '...'}</p>
 									<Link to={`/detail/${tit.id}`}>
 										<button>View Deatil</button>

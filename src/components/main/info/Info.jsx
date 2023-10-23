@@ -2,7 +2,7 @@ import { useFlickrQuery } from '../../../hooks/useFlickr';
 import './Info.scss';
 
 function Info() {
-	const { data, isSuccess } = useFlickrQuery({ type: 'user', id: '164021883@N04' });
+	const { data, isSuccess } = useFlickrQuery({ type: 'user', id: '199296342@N06' });
 	return (
 		<section className='info myScroll'>
 			<div className='wrap'>

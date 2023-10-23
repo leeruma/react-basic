@@ -5,7 +5,7 @@ import { toggle } from '../../../redux/menuSlice';
 import { useGloblaData } from '../../../hooks/useGlobalContext';
 
 export default function Header({ isMain }) {
-	const { MenuOpen, setMenuOpen } = useGloblaData();
+	const { MenuOpen, setMenuOpen, setTheme, Theme } = useGloblaData();
 	return (
 		<header className='header myScroll'>
 			<h1>
@@ -44,7 +44,9 @@ export default function Header({ isMain }) {
 					</NavLink>
 				</li>
 			</ul>
-
+			<span className='btnTheme' onClick={() => setTheme(!Theme)}>
+				Theme
+			</span>
 			<FaBars
 				className='bars'
 				fontSize={22}

@@ -38,7 +38,6 @@ export default function Community() {
 	const refEditTextarea = useRef(null);
 	const [Posts, setPosts] = useState(getLocalData());
 	const [Allowed, setAllowed] = useState(true);
-	console.log(Posts);
 
 	const resetForm = () => {
 		refInput.current.value = '';
@@ -125,7 +124,7 @@ export default function Community() {
 					<button onClick={resetForm}>cancel</button>
 					<button onClick={createPost}>write</button>
 				</nav>
-				<h4>Lorem ipsum</h4>
+				<h4>Input</h4>
 			</div>
 
 			<div className='showBox'>

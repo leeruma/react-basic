@@ -19,14 +19,14 @@
 			// transform: translate(3%, -120px);
 			display: inline;
 			position: absolute;
-			left: 40px;
+			left: 50px;
 			top: 30px;
 		}
 
 		input[type='text'],
 		textarea {
-			transform: translate(113%, -10px);
-			width: 45%;
+			transform: translate(33%, 0px);
+			width: 70%;
 			padding: 8px 10px;
 			border: none;
 			border-bottom: 1px solid #aaa;
@@ -38,7 +38,7 @@
 
 		.btnSet {
 			position: absolute;
-			right: 3%;
+			right: 5%;
 			margin-top: -5px;
 			button {
 				display: inline-block;
